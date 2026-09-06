@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Payment Status & MSP Settlement Ledger - Online Paddy Procurement System, Department of Civil Supplies. View gross procurement amount, deductions, net DBT payouts and bank UTRs.">
+  <title>Payment Status &amp; Ledger | Online Paddy Procurement System</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/government.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <!-- Accessible Skip Link -->
+  <a href="#main-content" class="skip-to-content">Skip to Main Content</a>
+
+  <!-- Top Tricolor Stripe -->
+  <div class="gov-top-tricolor" aria-hidden="true"></div>
+
+  <!-- Government Top Admin Strip -->
+  <div class="gov-top-bar">
+    <div class="container gov-top-bar-content">
+      <div class="gov-entity-links">
+        <span class="gov-entity-link" data-i18n="gov.india">Government of India</span>
+        <span style="color: rgba(255,255,255,0.3);">|</span>
+        <span class="gov-entity-link" data-i18n="gov.state">Government of Andhra Pradesh</span>
+      </div>
+      <div class="gov-accessibility-controls">
+        <button type="button" id="btn-font-small" class="a11y-btn" aria-label="Decrease Text Size">A-</button>
+        <button type="button" id="btn-font-normal" class="a11y-btn" aria-label="Reset Text Size">A</button>
+        <button type="button" id="btn-font-large" class="a11y-btn" aria-label="Increase Text Size">A+</button>
+        <button type="button" id="btn-contrast-toggle" class="contrast-toggle-btn" aria-label="Toggle High Contrast">Contrast</button>
+        <div class="lang-select-wrapper">
+          <label for="header-lang-select" class="sr-only" style="position: absolute; left: -9999px;">Language</label>
+          <select id="header-lang-select" class="lang-select" aria-label="Select Language">
+            <option value="en">English</option>
+            <option value="te">తెలుగు (Telugu)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Department Branding Header -->
+  <header class="gov-branding-header">
+    <div class="container gov-branding-content">
+      <a href="index.html" class="gov-branding-left">
+        <img src="assets/images/national-emblem.svg" alt="National Emblem of India" class="gov-emblem-img">
+        <div class="gov-title-group">
+          <span class="gov-state-title" data-i18n="gov.state">Government of Andhra Pradesh</span>
+          <span class="gov-dept-title" data-i18n="gov.dept">Department of Civil Supplies</span>
+          <span class="gov-portal-title" data-i18n="gov.portal">Online Paddy Procurement System</span>
+        </div>
+      </a>
+      <div class="gov-branding-right">
+        <img src="assets/images/state-logo.svg" alt="Civil Supplies Seal" class="gov-state-logo-img">
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Navigation Bar -->
+  <nav class="gov-nav-bar" aria-label="Main Navigation">
+    <div class="container gov-nav-container">
+      <button type="button" class="mobile-menu-toggle" aria-expanded="false" aria-controls="main-nav-menu" aria-label="Toggle Navigation Menu">
+        ☰ Menu
+      </button>
+      <ul id="main-nav-menu" class="gov-nav-menu">
+        <li class="gov-nav-item"><a href="index.html" class="gov-nav-link" data-i18n="nav.home">Home</a></li>
+        <li class="gov-nav-item"><a href="farmer-registration.html" class="gov-nav-link" data-i18n="nav.farmers">Farmers</a></li>
+        <li class="gov-nav-item"><a href="procurement-centres.html" class="gov-nav-link" data-i18n="nav.centres">Procurement Centres</a></li>
+        <li class="gov-nav-item"><a href="slot-booking.html" class="gov-nav-link" data-i18n="nav.schedule">Schedule</a></li>
+        <li class="gov-nav-item"><a href="procurement-status.html" class="gov-nav-link" data-i18n="nav.procurementStatus">Procurement Status</a></li>
+        <li class="gov-nav-item"><a href="payment-status.html" class="gov-nav-link active" data-i18n="nav.paymentStatus">Payment Status</a></li>
+        <li class="gov-nav-item"><a href="grievance.html" class="gov-nav-link" data-i18n="nav.grievance">Grievance</a></li>
+      </ul>
+      <div class="gov-nav-right-actions">
+        <a href="farmer-dashboard.html" class="btn btn-sm btn-secondary">Farmer Dashboard</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Breadcrumbs -->
+  <div class="breadcrumb-wrapper">
+    <div class="container">
+      <ul class="breadcrumbs">
+        <li><a href="index.html">Home</a></li>
+        <li>Financial Ledger</li>
+        <li class="current">Payment Status &amp; Direct Benefit Transfer</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main id="main-content" style="padding: 30px 0;">
+    <div class="container">
+
+      <!-- Official MSP Rates Banner -->
+      <div class="card" style="border-left: 5px solid var(--agri-green-primary); margin-bottom: 24px;">
+        <div class="card-body d-flex justify-between align-center flex-wrap gap-2">
+          <div>
+            <span class="badge badge-warning">Official Kharif Season 2026-27 MSP</span>
+            <h2 style="font-size: 1.3rem; margin: 6px 0;">Government Minimum Support Price (MSP) Rates</h2>
+            <p class="text-muted" style="margin: 0; font-size: 0.88rem;">
+              Mandatory government rates payable directly to registered farmers through NPCI/PFMS DBT gateway.
+            </p>
+          </div>
+          <div style="display: flex; gap: 16px; align-items: center;">
+            <div style="text-align: right;">
+              <span style="font-size: 0.76rem; color: var(--text-muted); text-transform: uppercase;">Paddy Grade 'A'</span>
+              <div style="font-size: 1.35rem; font-weight: 900; color: var(--agri-green-dark);">₹2,320 / Quintal</div>
+            </div>
+            <div style="text-align: right; border-left: 1px solid var(--border-color); padding-left: 16px;">
+              <span style="font-size: 0.76rem; color: var(--text-muted); text-transform: uppercase;">Common Paddy</span>
+              <div style="font-size: 1.35rem; font-weight: 900; color: var(--gov-navy-dark);">₹2,300 / Quintal</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Payment Summary & Bank Details -->
+      <div class="grid-3" style="margin-bottom: 24px;">
+        <div class="card" style="margin-bottom: 0; border-top: 3px solid var(--agri-green-primary);">
+          <div class="card-body">
+            <span class="form-label" style="font-size: 0.78rem;">Total Disbursed (Credited)</span>
+            <div style="font-size: 1.7rem; font-weight: 900; color: var(--agri-green-dark); margin: 4px 0;">₹69,600</div>
+            <span class="badge badge-success">Direct Bank Transfer Complete</span>
+          </div>
+        </div>
+        <div class="card" style="margin-bottom: 0; border-top: 3px solid #d97706;">
+          <div class="card-body">
+            <span class="form-label" style="font-size: 0.78rem;">Pending Treasury Sanction</span>
+            <div style="font-size: 1.7rem; font-weight: 900; color: #b45309; margin: 4px 0;">₹34,800</div>
+            <span class="badge badge-warning">CFMS Batch Approval in Progress</span>
+          </div>
+        </div>
+        <div class="card" style="margin-bottom: 0; border-top: 3px solid var(--gov-navy-primary);">
+          <div class="card-body">
+            <span class="form-label" style="font-size: 0.78rem;">Beneficiary Bank Account</span>
+            <strong style="font-size: 1.05rem; display: block; margin-top: 4px;">State Bank of India</strong>
+            <span class="text-muted" style="font-size: 0.84rem; font-family: var(--font-mono);">A/C: XXXXXXXX4819 (SBIN0000928)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Government Payment Settlement Ledger Table -->
+      <div class="card">
+        <div class="card-header d-flex justify-between align-center">
+          <h3>Procurement Billing &amp; Payment Settlement Ledger</h3>
+          <span class="badge badge-info">PFMS Direct Benefit Transfer</span>
+        </div>
+        <div class="card-body" style="padding: 0;">
+          <div class="table-responsive" style="margin-bottom: 0; border: none;">
+            <table class="gov-table" aria-label="Payment Ledger">
+              <thead>
+                <tr>
+                  <th>Token Slip No</th>
+                  <th>Procured Quantity</th>
+                  <th>MSP Rate</th>
+                  <th>Gross Amount</th>
+                  <th>Allowable Deductions</th>
+                  <th>Net Payable</th>
+                  <th>Payment Status</th>
+                  <th>Bank UTR Reference</th>
+                  <th>Payment Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <strong style="font-family: var(--font-mono); color: var(--gov-navy-primary);">PPC-2026-0918</strong><br>
+                    <small class="text-muted">Receipt: RCP-AP-2026-894102</small>
+                  </td>
+                  <td>30.00 Qtl<br><small class="badge badge-neutral">Grade A</small></td>
+                  <td class="number-cell">₹2,320.00</td>
+                  <td class="number-cell"><strong>₹69,600.00</strong></td>
+                  <td class="number-cell" style="color: var(--agri-green-dark);">₹0.00</td>
+                  <td class="number-cell"><strong style="color: var(--agri-green-dark); font-size: 1rem;">₹69,600.00</strong></td>
+                  <td><span class="badge badge-success">Paid / Credited</span></td>
+                  <td><span style="font-family: var(--font-mono); font-weight: 700; color: #1e40af;">RBI20260830784912</span></td>
+                  <td>2026-08-30</td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong style="font-family: var(--font-mono); color: var(--gov-navy-primary);">PPC-2026-1042</strong><br>
+                    <small class="text-muted">Awaiting Delivery</small>
+                  </td>
+                  <td>25.00 Qtl (Scheduled)<br><small class="badge badge-neutral">Grade A</small></td>
+                  <td class="number-cell">₹2,320.00</td>
+                  <td class="number-cell">₹58,000.00</td>
+                  <td class="number-cell">-</td>
+                  <td class="number-cell"><strong>₹58,000.00</strong></td>
+                  <td><span class="badge badge-warning">Pending Delivery</span></td>
+                  <td><span class="text-muted" style="font-size: 0.8rem;">Pending Weighment</span></td>
+                  <td>-</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Government Footer -->
+  <footer class="gov-footer">
+    <div class="container gov-footer-bottom">
+      <p style="margin: 0; font-size: 0.76rem;">
+        Website Content Managed by <strong>Department of Civil Supplies, Government of Andhra Pradesh</strong>.<br>
+        Designed, Developed and Hosted by <strong>National Informatics Centre (NIC)</strong>.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/language.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

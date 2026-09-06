@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Farmer Registration - Online Paddy Procurement System, Department of Civil Supplies. 7-step enrollment with land parcel records and centre allotment.">
+  <title>Farmer Registration | Online Paddy Procurement System</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/government.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <style>
+    .stepper-nav-reg {
+      display: flex;
+      justify-content: space-between;
+      list-style: none;
+      padding: 0;
+      margin: 20px 0 30px;
+      border-bottom: 2px solid var(--border-color);
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    .stepper-item-reg {
+      flex: 1;
+      min-width: 120px;
+      padding: 10px 8px;
+      text-align: center;
+      position: relative;
+      cursor: default;
+    }
+    .stepper-item-reg .step-num {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--bg-alt);
+      border: 2px solid var(--border-color);
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.8rem;
+      margin-bottom: 4px;
+    }
+    .stepper-item-reg .step-title {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+    .stepper-item-reg.active {
+      border-bottom: 3px solid var(--gov-navy-primary);
+    }
+    .stepper-item-reg.active .step-num {
+      background: var(--gov-navy-primary);
+      border-color: var(--gov-navy-primary);
+      color: #ffffff;
+    }
+    .stepper-item-reg.active .step-title {
+      color: var(--gov-navy-primary);
+      font-weight: 700;
+    }
+    .stepper-item-reg.completed .step-num {
+      background: var(--agri-green-primary);
+      border-color: var(--agri-green-primary);
+      color: #ffffff;
+    }
+    .stepper-item-reg.completed .step-title {
+      color: var(--agri-green-dark);
+    }
+    .file-upload-box {
+      border: 2px dashed var(--border-color);
+      padding: 16px;
+      text-align: center;
+      background: var(--bg-main);
+      border-radius: var(--radius-sm);
+    }
+  </style>
+</head>
+<body>
+  <!-- Accessible Skip Link -->
+  <a href="#main-content" class="skip-to-content">Skip to Main Content</a>
+
+  <!-- Top Tricolor Stripe -->
+  <div class="gov-top-tricolor" aria-hidden="true"></div>
+
+  <!-- Government Top Admin Strip -->
+  <div class="gov-top-bar">
+    <div class="container gov-top-bar-content">
+      <div class="gov-entity-links">
+        <span class="gov-entity-link" data-i18n="gov.india">Government of India</span>
+        <span style="color: rgba(255,255,255,0.3);">|</span>
+        <span class="gov-entity-link" data-i18n="gov.state">Government of Andhra Pradesh</span>
+      </div>
+      <div class="gov-accessibility-controls">
+        <button type="button" id="btn-font-small" class="a11y-btn" aria-label="Decrease Text Size">A-</button>
+        <button type="button" id="btn-font-normal" class="a11y-btn" aria-label="Reset Text Size">A</button>
+        <button type="button" id="btn-font-large" class="a11y-btn" aria-label="Increase Text Size">A+</button>
+        <button type="button" id="btn-contrast-toggle" class="contrast-toggle-btn" aria-label="Toggle High Contrast">Contrast</button>
+        <div class="lang-select-wrapper">
+          <label for="header-lang-select" class="sr-only" style="position: absolute; left: -9999px;">Language</label>
+          <select id="header-lang-select" class="lang-select" aria-label="Select Language">
+            <option value="en">English</option>
+            <option value="te">తెలుగు (Telugu)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Department Branding Header -->
+  <header class="gov-branding-header">
+    <div class="container gov-branding-content">
+      <a href="index.html" class="gov-branding-left">
+        <img src="assets/images/national-emblem.svg" alt="National Emblem of India" class="gov-emblem-img">
+        <div class="gov-title-group">
+          <span class="gov-state-title" data-i18n="gov.state">Government of Andhra Pradesh</span>
+          <span class="gov-dept-title" data-i18n="gov.dept">Department of Civil Supplies</span>
+          <span class="gov-portal-title" data-i18n="gov.portal">Online Paddy Procurement System</span>
+        </div>
+      </a>
+      <div class="gov-branding-right">
+        <img src="assets/images/state-logo.svg" alt="Civil Supplies Seal" class="gov-state-logo-img">
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Navigation Bar -->
+  <nav class="gov-nav-bar" aria-label="Main Navigation">
+    <div class="container gov-nav-container">
+      <button type="button" class="mobile-menu-toggle" aria-expanded="false" aria-controls="main-nav-menu" aria-label="Toggle Navigation Menu">
+        ☰ Menu
+      </button>
+      <ul id="main-nav-menu" class="gov-nav-menu">
+        <li class="gov-nav-item"><a href="index.html" class="gov-nav-link" data-i18n="nav.home">Home</a></li>
+        <li class="gov-nav-item"><a href="farmer-registration.html" class="gov-nav-link active" data-i18n="nav.farmers">Farmers</a></li>
+        <li class="gov-nav-item"><a href="procurement-centres.html" class="gov-nav-link" data-i18n="nav.centres">Procurement Centres</a></li>
+        <li class="gov-nav-item"><a href="slot-booking.html" class="gov-nav-link" data-i18n="nav.schedule">Schedule</a></li>
+        <li class="gov-nav-item"><a href="procurement-status.html" class="gov-nav-link" data-i18n="nav.procurementStatus">Procurement Status</a></li>
+        <li class="gov-nav-item"><a href="payment-status.html" class="gov-nav-link" data-i18n="nav.paymentStatus">Payment Status</a></li>
+        <li class="gov-nav-item"><a href="grievance.html" class="gov-nav-link" data-i18n="nav.grievance">Grievance</a></li>
+      </ul>
+      <div class="gov-nav-right-actions">
+        <a href="farmer-login.html" class="btn btn-sm btn-secondary nav-login-btn" data-i18n="nav.farmerLogin">Farmer Login</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Breadcrumbs -->
+  <div class="breadcrumb-wrapper">
+    <div class="container">
+      <ul class="breadcrumbs">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="farmer-registration.html">Farmers</a></li>
+        <li class="current">Farmer Registration</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main id="main-content" style="padding: 30px 0;">
+    <div class="container">
+      <div class="card" style="box-shadow: var(--shadow-card); border-top: 4px solid var(--agri-green-primary);">
+        <div class="card-header d-flex justify-between align-center">
+          <div>
+            <h2 style="font-size: 1.25rem; margin-bottom: 2px;">Farmer Registration Form (Kharif Season 2026)</h2>
+            <span style="font-size: 0.8rem; color: var(--text-muted);">
+              Statutory Online Application for Paddy Procurement &amp; MSP Direct Benefit Transfer
+            </span>
+          </div>
+          <span class="badge badge-info">Multi-Step Enrollment</span>
+        </div>
+        <div class="card-body">
+
+          <!-- Wizard Step Navigation Indicators -->
+          <ol class="stepper-nav-reg">
+            <li class="stepper-item-reg active" data-step-indicator="1">
+              <span class="step-num">1</span>
+              <span class="step-title">Personal Info</span>
+            </li>
+            <li class="stepper-item-reg" data-step-indicator="2">
+              <span class="step-num">2</span>
+              <span class="step-title">Address</span>
+            </li>
+            <li class="stepper-item-reg" data-step-indicator="3">
+              <span class="step-num">3</span>
+              <span class="step-title">Land Details</span>
+            </li>
+            <li class="stepper-item-reg" data-step-indicator="4">
+              <span class="step-num">4</span>
+              <span class="step-title">Procurement Centre</span>
+            </li>
+            <li class="stepper-item-reg" data-step-indicator="5">
+              <span class="step-num">5</span>
+              <span class="step-title">Bank Details</span>
+            </li>
+            <li class="stepper-item-reg" data-step-indicator="6">
+              <span class="step-num">6</span>
+              <span class="step-title">Documents</span>
+            </li>
+            <li class="stepper-item-reg" data-step-indicator="7">
+              <span class="step-num">7</span>
+              <span class="step-title">Declaration</span>
+            </li>
+          </ol>
+
+          <!-- Step 1: Personal Details -->
+          <div class="reg-step-container" data-step="1">
+            <h3 style="border-bottom: 1px solid var(--border-color); padding-bottom: 8px; margin-bottom: 18px;">
+              Step 1: Personal Particulars of Farmer
+            </h3>
+            <div class="grid-3">
+              <div class="form-group">
+                <label for="reg-farmer-name" class="form-label">Farmer Full Name (as per Aadhaar) <span class="required">*</span></label>
+                <input type="text" id="reg-farmer-name" class="form-control" placeholder="e.g. Ramesh Kumar" value="K. Nageswara Rao">
+              </div>
+              <div class="form-group">
+                <label for="reg-father-name" class="form-label">Father / Mother / Spouse Name <span class="required">*</span></label>
+                <input type="text" id="reg-father-name" class="form-control" placeholder="e.g. Venkata Narayana" value="K. Subrahmanyam">
+              </div>
+              <div class="form-group">
+                <label for="reg-aadhaar" class="form-label">Aadhaar Number (12 Digits) <span class="required">*</span></label>
+                <input type="password" id="reg-aadhaar" class="form-control" placeholder="12-digit UIDAI number" maxlength="12" value="234567891234">
+                <span class="form-hint">Used for DBT Aadhaar Payment Bridge System (APBS).</span>
+              </div>
+              <div class="form-group">
+                <label for="reg-mobile" class="form-label">Mobile Number (Linked with Bank/Aadhaar) <span class="required">*</span></label>
+                <input type="tel" id="reg-mobile" class="form-control" placeholder="10-digit mobile" maxlength="10" value="9849012345">
+              </div>
+              <div class="form-group">
+                <label for="reg-gender" class="form-label">Gender <span class="required">*</span></label>
+                <select id="reg-gender" class="form-control">
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                  <option value="Transgender">Transgender</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="reg-age" class="form-label">Age (Years) <span class="required">*</span></label>
+                <input type="number" id="reg-age" class="form-control" min="18" max="100" value="48">
+              </div>
+              <div class="form-group">
+                <label for="reg-krishak-id" class="form-label">Krishak Bandhu / State Farmer ID</label>
+                <input type="text" id="reg-krishak-id" class="form-control" placeholder="e.g. KB-2026-90142" value="KB-2026-94102">
+              </div>
+              <div class="form-group">
+                <label for="reg-voter-id" class="form-label">Voter ID (EPIC Number)</label>
+                <input type="text" id="reg-voter-id" class="form-control" placeholder="e.g. AP/08/042/189201" value="AP/08/042/338901">
+              </div>
+            </div>
+            <div class="card-footer mt-3" style="background: transparent; padding: 0;">
+              <button type="button" class="btn btn-primary btn-next-step">Next: Address Details ›</button>
+            </div>
+          </div>
+
+          <!-- Step 2: Address -->
+          <div class="reg-step-container" data-step="2" style="display: none;">
+            <h3 style="border-bottom: 1px solid var(--border-color); padding-bottom: 8px; margin-bottom: 18px;">
+              Step 2: Permanent Residential Address
+            </h3>
+            <div class="grid-3">
+              <div class="form-group">
+                <label for="reg-district" class="form-label">District <span class="required">*</span></label>
+                <select id="reg-district" class="form-control">
+                  <option value="Guntur">Guntur</option>
+                  <option value="Krishna">Krishna</option>
+                  <option value="West Godavari">West Godavari</option>
+                  <option value="East Godavari">East Godavari</option>
+                  <option value="Kurnool">Kurnool</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="reg-mandal" class="form-label">Mandal / Block <span class="required">*</span></label>
+                <input type="text" id="reg-mandal" class="form-control" value="Tenali">
+              </div>
+              <div class="form-group">
+                <label for="reg-panchayat" class="form-label">Gram Panchayat <span class="required">*</span></label>
+                <input type="text" id="reg-panchayat" class="form-control" value="Angalakuduru">
+              </div>
+              <div class="form-group">
+                <label for="reg-village" class="form-label">Village / Habitation <span class="required">*</span></label>
+                <input type="text" id="reg-village" class="form-control" value="Angalakuduru">
+              </div>
+              <div class="form-group">
+                <label for="reg-pincode" class="form-label">Postal PIN Code <span class="required">*</span></label>
+                <input type="text" id="reg-pincode" class="form-control" maxlength="6" value="522211">
+              </div>
+            </div>
+            <div class="card-footer mt-3" style="background: transparent; padding: 0; justify-content: space-between;">
+              <button type="button" class="btn btn-secondary btn-prev-step">‹ Back</button>
+              <button type="button" class="btn btn-primary btn-next-step">Next: Land Parcels ›</button>
+            </div>
+          </div>
+
+          <!-- Step 3: Land Details -->
+          <div class="reg-step-container" data-step="3" style="display: none;">
+            <h3 style="border-bottom: 1px solid var(--border-color); padding-bottom: 8px; margin-bottom: 18px;">
+              Step 3: Cultivated Land Holdings (ROR / Patta Passbook)
+            </h3>
+            <p class="text-muted" style="font-size: 0.88rem;">
+              Add all agricultural land parcels under cultivation. Procurement quota is calculated strictly based on verified acreage.
+            </p>
+
+            <!-- Interactive Land Add Form -->
+            <div style="background: #f1f5f9; padding: 16px; border-radius: var(--radius-sm); border: 1px solid var(--border-color); margin-bottom: 16px;">
+              <h4 style="font-size: 0.95rem; margin-bottom: 10px;">+ Add New Land Parcel</h4>
+              <div class="grid-3">
+                <div class="form-group">
+                  <label for="land-input-district" class="form-label">District</label>
+                  <select id="land-input-district" class="form-control">
+                    <option value="Guntur">Guntur</option>
+                    <option value="Krishna">Krishna</option>
+                    <option value="West Godavari">West Godavari</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="land-input-village" class="form-label">Village / Mouza</label>
+                  <input type="text" id="land-input-village" class="form-control" placeholder="e.g. Angalakuduru">
+                </div>
+                <div class="form-group">
+                  <label for="land-input-survey" class="form-label">Survey / Khatian No.</label>
+                  <input type="text" id="land-input-survey" class="form-control" placeholder="e.g. 142/2A">
+                </div>
+                <div class="form-group">
+                  <label for="land-input-dag" class="form-label">Dag / Plot No.</label>
+                  <input type="text" id="land-input-dag" class="form-control" placeholder="e.g. 45">
+                </div>
+                <div class="form-group">
+                  <label for="land-input-area" class="form-label">Cultivated Area (Acres)</label>
+                  <input type="number" id="land-input-area" class="form-control" step="0.01" min="0.1" placeholder="e.g. 2.5">
+                </div>
+                <div class="form-group">
+                  <label for="land-input-ownership" class="form-label">Ownership Type</label>
+                  <select id="land-input-ownership" class="form-control">
+                    <option value="Self Owned">Self Owned / Patta</option>
+                    <option value="Tenant / Lease">Tenant / Registered Lease</option>
+                    <option value="Sharecropper">Sharecropper (Bargadar)</option>
+                  </select>
+                </div>
+              </div>
+              <div class="text-right">
+                <button type="button" class="btn btn-success btn-sm" onclick="addLandRecord()">
+                  + Add Land Parcel to Table
+                </button>
+              </div>
+            </div>
+
+            <!-- Land Records Table -->
+            <div class="table-responsive">
+              <table class="gov-table" aria-label="Land Records">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>District</th>
+                    <th>Village / Mouza</th>
+                    <th>Survey / Khatian</th>
+                    <th>Dag No</th>
+                    <th>Area (Acres)</th>
+                    <th>Ownership</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="land-records-tbody">
+                  <!-- Injected by registration.js -->
+                </tbody>
+              </table>
+            </div>
+
+            <div class="alert alert-info d-flex justify-between align-center" style="margin-top: 10px;">
+              <span><strong>Total Cultivated Area:</strong> <span id="total-land-acres">3.00</span> Acres</span>
+              <span><strong>Estimated Paddy Quota:</strong> ~75 Quintals (@ 25 Qtl/Acre)</span>
+            </div>
+
+            <div class="card-footer mt-3" style="background: transparent; padding: 0; justify-content: space-between;">
+              <button type="button" class="btn btn-secondary btn-prev-step">‹ Back</button>
+              <button type="button" class="btn btn-primary btn-next-step">Next: Procurement Centre ›</button>
+            </div>
+          </div>
+
+          <!-- Step 4: Procurement Centre Selection -->
+          <div class="reg-step-container" data-step="4" style="display: none;">
+            <h3 style="border-bottom: 1px solid var(--border-color); padding-bottom: 8px; margin-bottom: 18px;">
+              Step 4: Preferred Procurement Centre Allotment
+            </h3>
+            <div class="form-group" style="max-width: 600px;">
+              <label for="reg-centre-select" class="form-label">Select Nearest Procurement Centre <span class="required">*</span></label>
+              <select id="reg-centre-select" class="form-control">
+                <!-- Dynamically populated -->
+              </select>
+            </div>
+
+            <!-- Centre Preview Box -->
+            <div id="centre-preview-card" class="card" style="display: none; background: #f8fafc; border-left: 4px solid var(--gov-navy-primary); max-width: 600px;">
+              <div class="card-body">
+                <h4 id="centre-preview-name" style="color: var(--gov-navy-dark); margin-bottom: 4px;">Tenali PPC</h4>
+                <p id="centre-preview-address" class="text-muted" style="font-size: 0.86rem; margin-bottom: 6px;">Address details...</p>
+                <div id="centre-preview-officer" style="font-size: 0.85rem; font-weight: 600; color: var(--gov-navy-primary); margin-bottom: 6px;">Officer details...</div>
+                <div id="centre-preview-capacity" class="badge badge-success">Capacity info...</div>
+              </div>
+            </div>
+
+            <div class="card-footer mt-3" style="background: transparent; padding: 0; justify-content: space-between;">
+              <button type="button" class="btn btn-secondary btn-prev-step">‹ Back</button>
+              <button type="button" class="btn btn-primary btn-next-step">Next: Bank Details ›</button>
+            </div>
+          </div>
+
+          <!-- Step 5: Bank Details -->
+          <div class="reg-step-container" data-step="5" style="display: none;">
+            <h3 style="border-bottom: 1px solid var(--border-color); padding-bottom: 8px; margin-bottom: 18px;">
+              Step 5: Bank Account for Direct Benefit Transfer (DBT)
+            </h3>
+            <div class="alert alert-warning">
+              <strong>Mandatory DBT Guideline:</strong> The bank account must be actively linked with the farmer's Aadhaar number (NPCI Aadhaar Mapping) to receive procurement payouts directly without payment bounce.
+            </div>
+            <div class="grid-3">
+              <div class="form-group">
+                <label for="reg-bank-name" class="form-label">Bank Name <span class="required">*</span></label>
+                <input type="text" id="reg-bank-name" class="form-control" value="State Bank of India">
+              </div>
+              <div class="form-group">
+                <label for="reg-branch" class="form-label">Branch Name <span class="required">*</span></label>
+                <input type="text" id="reg-branch" class="form-control" value="Tenali Main">
+              </div>
+              <div class="form-group">
+                <label for="reg-ifsc" class="form-label">IFSC Code (11 Characters) <span class="required">*</span></label>
+                <input type="text" id="reg-ifsc" class="form-control" maxlength="11" value="SBIN0000928" style="text-transform: uppercase;">
+              </div>
+              <div class="form-group">
+                <label for="reg-account-no" class="form-label">Bank Account Number <span class="required">*</span></label>
+                <input type="password" id="reg-account-no" class="form-control" value="309812454819">
+              </div>
+              <div class="form-group">
+                <label for="reg-confirm-account-no" class="form-label">Confirm Bank Account Number <span class="required">*</span></label>
+                <input type="text" id="reg-confirm-account-no" class="form-control" value="309812454819">
+              </div>
+              <div class="form-group">
+                <label for="reg-account-type" class="form-label">Account Type <span class="required">*</span></label>
+                <select id="reg-account-type" class="form-control">
+                  <option value="Savings">Savings Account</option>
+                  <option value="Current">Current Account</option>
+                </select>
+              </div>
+            </div>
+            <div class="card-footer mt-3" style="background: transparent; padding: 0; justify-content: space-between;">
+              <button type="button" class="btn btn-secondary btn-prev-step">‹ Back</button>
+              <button type="button" class="btn btn-primary btn-next-step">Next: Upload Documents ›</button>
+            </div>
+          </div>
+
+          <!-- Step 6: Documents Upload -->
+          <div class="reg-step-container" data-step="6" style="display: none;">
+            <h3 style="border-bottom: 1px solid var(--border-color); padding-bottom: 8px; margin-bottom: 18px;">
+              Step 6: Supporting Document Uploads
+            </h3>
+            <p class="text-muted" style="font-size: 0.88rem;">
+              Upload clear PDF or JPG scans (Max 2MB per document). Demo preview: mock file verification active.
+            </p>
+            <div class="grid-3">
+              <!-- Doc 1 -->
+              <div class="file-upload-box">
+                <div style="font-size: 1.8rem; margin-bottom: 6px;">🪪</div>
+                <strong>Identity Document (Aadhaar / Voter ID)</strong>
+                <p class="text-muted mt-1" style="font-size: 0.78rem;">PDF or JPG (Max 2MB)</p>
+                <input type="file" class="form-control" accept=".pdf,.jpg,.jpeg,.png">
+                <span class="badge badge-success mt-1">Ready for Upload</span>
+              </div>
+              <!-- Doc 2 -->
+              <div class="file-upload-box">
+                <div style="font-size: 1.8rem; margin-bottom: 6px;">📜</div>
+                <strong>Land Record (1-B / Patta Passbook / ROR)</strong>
+                <p class="text-muted mt-1" style="font-size: 0.78rem;">PDF or JPG (Max 2MB)</p>
+                <input type="file" class="form-control" accept=".pdf,.jpg,.jpeg,.png">
+                <span class="badge badge-success mt-1">Ready for Upload</span>
+              </div>
+              <!-- Doc 3 -->
+              <div class="file-upload-box">
+                <div style="font-size: 1.8rem; margin-bottom: 6px;">🏦</div>
+                <strong>Bank Passbook / Cancelled Cheque</strong>
+                <p class="text-muted mt-1" style="font-size: 0.78rem;">Showing Name, A/C &amp; IFSC</p>
+                <input type="file" class="form-control" accept=".pdf,.jpg,.jpeg,.png">
+                <span class="badge badge-success mt-1">Ready for Upload</span>
+              </div>
+            </div>
+            <div class="card-footer mt-3" style="background: transparent; padding: 0; justify-content: space-between;">
+              <button type="button" class="btn btn-secondary btn-prev-step">‹ Back</button>
+              <button type="button" class="btn btn-primary btn-next-step">Next: Review &amp; Declaration ›</button>
+            </div>
+          </div>
+
+          <!-- Step 7: Review & Declaration -->
+          <div class="reg-step-container" data-step="7" style="display: none;">
+            <h3 style="border-bottom: 1px solid var(--border-color); padding-bottom: 8px; margin-bottom: 18px;">
+              Step 7: Statutory Declaration &amp; Application Review
+            </h3>
+
+            <!-- Summary review box populated dynamically -->
+            <div id="registration-summary-box" class="card" style="background: #f8fafc; padding: 16px; margin-bottom: 20px;">
+              <!-- Dynamically populated -->
+            </div>
+
+            <!-- Statutory Undertaking -->
+            <div class="form-check" style="background: #fffbeb; padding: 14px; border: 1px solid #fef3c7; border-radius: var(--radius-sm); margin-bottom: 20px;">
+              <input type="checkbox" id="reg-declaration-checkbox" class="form-check-input">
+              <label for="reg-declaration-checkbox" class="form-check-label" style="font-size: 0.88rem; line-height: 1.5;">
+                <strong>Solemn Declaration:</strong> I hereby solemnly affirm and declare that the personal details, cultivated land holdings, and bank particulars furnished by me are authentic, correct, and true to my knowledge. I understand that delivering paddy grown outside the registered land or claiming false MSP is a punishable offense under the Essential Commodities Act.
+              </label>
+            </div>
+
+            <div class="card-footer mt-3" style="background: transparent; padding: 0; justify-content: space-between;">
+              <button type="button" class="btn btn-secondary btn-prev-step">‹ Back</button>
+              <button type="button" class="btn btn-success btn-lg" onclick="submitFarmerRegistration(event)">
+                Submit Application &amp; Generate Farmer ID
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Success Confirmation Modal -->
+  <div id="registration-success-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="reg-success-title">
+    <div class="modal-dialog text-center">
+      <div class="modal-header" style="background: var(--agri-green-primary);">
+        <h3 id="reg-success-title">Registration Acknowledgment</h3>
+      </div>
+      <div class="modal-body" style="padding: 30px 20px;">
+        <div style="font-size: 3rem; color: var(--agri-green-primary); margin-bottom: 12px;">✅</div>
+        <h3 style="color: var(--gov-navy-dark); margin-bottom: 6px;">Registration Successfully Submitted!</h3>
+        <p class="text-muted">
+          Your online enrollment under the Kharif Marketing Season 2026 has been registered and e-verified with state land revenue records.
+        </p>
+        <div class="alert alert-info" style="margin: 20px 0; font-size: 1rem;">
+          Permanent Farmer Registration ID:<br>
+          <strong id="success-reg-id" style="font-size: 1.5rem; color: #1e40af; font-family: var(--font-mono); letter-spacing: 1px;">
+            FMR-AP-2026-89412
+          </strong>
+        </div>
+        <p style="font-size: 0.85rem; color: var(--text-muted);">
+          A confirmation SMS has been dispatched to your linked mobile number. You can now book delivery slots and track procurement status.
+        </p>
+      </div>
+      <div class="modal-footer" style="justify-content: center; gap: 12px;">
+        <a href="farmer-dashboard.html" class="btn btn-primary">Go to Farmer Dashboard</a>
+        <a href="slot-booking.html" class="btn btn-success">Book Procurement Slot Now</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Government Footer -->
+  <footer class="gov-footer">
+    <div class="container gov-footer-bottom">
+      <p style="margin: 0; font-size: 0.76rem;">
+        Website Content Managed by <strong>Department of Civil Supplies, Government of Andhra Pradesh</strong>.<br>
+        Designed, Developed and Hosted by <strong>National Informatics Centre (NIC)</strong>.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/language.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/registration.js"></script>
+</body>
+</html>

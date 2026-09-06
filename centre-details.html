@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Procurement Centre Details - Online Paddy Procurement System, Department of Civil Supplies. Daily capacity, officer contacts, queue times, and slot booking.">
+  <title>Centre Details | Online Paddy Procurement System</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/government.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <!-- Accessible Skip Link -->
+  <a href="#main-content" class="skip-to-content">Skip to Main Content</a>
+
+  <!-- Top Tricolor Stripe -->
+  <div class="gov-top-tricolor" aria-hidden="true"></div>
+
+  <!-- Government Top Admin Strip -->
+  <div class="gov-top-bar">
+    <div class="container gov-top-bar-content">
+      <div class="gov-entity-links">
+        <span class="gov-entity-link" data-i18n="gov.india">Government of India</span>
+        <span style="color: rgba(255,255,255,0.3);">|</span>
+        <span class="gov-entity-link" data-i18n="gov.state">Government of Andhra Pradesh</span>
+      </div>
+      <div class="gov-accessibility-controls">
+        <button type="button" id="btn-font-small" class="a11y-btn" aria-label="Decrease Text Size">A-</button>
+        <button type="button" id="btn-font-normal" class="a11y-btn" aria-label="Reset Text Size">A</button>
+        <button type="button" id="btn-font-large" class="a11y-btn" aria-label="Increase Text Size">A+</button>
+        <button type="button" id="btn-contrast-toggle" class="contrast-toggle-btn" aria-label="Toggle High Contrast">Contrast</button>
+        <div class="lang-select-wrapper">
+          <label for="header-lang-select" class="sr-only" style="position: absolute; left: -9999px;">Language</label>
+          <select id="header-lang-select" class="lang-select" aria-label="Select Language">
+            <option value="en">English</option>
+            <option value="te">తెలుగు (Telugu)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Department Branding Header -->
+  <header class="gov-branding-header">
+    <div class="container gov-branding-content">
+      <a href="index.html" class="gov-branding-left">
+        <img src="assets/images/national-emblem.svg" alt="National Emblem of India" class="gov-emblem-img">
+        <div class="gov-title-group">
+          <span class="gov-state-title" data-i18n="gov.state">Government of Andhra Pradesh</span>
+          <span class="gov-dept-title" data-i18n="gov.dept">Department of Civil Supplies</span>
+          <span class="gov-portal-title" data-i18n="gov.portal">Online Paddy Procurement System</span>
+        </div>
+      </a>
+      <div class="gov-branding-right">
+        <img src="assets/images/state-logo.svg" alt="Civil Supplies Seal" class="gov-state-logo-img">
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Navigation Bar -->
+  <nav class="gov-nav-bar" aria-label="Main Navigation">
+    <div class="container gov-nav-container">
+      <button type="button" class="mobile-menu-toggle" aria-expanded="false" aria-controls="main-nav-menu" aria-label="Toggle Navigation Menu">
+        ☰ Menu
+      </button>
+      <ul id="main-nav-menu" class="gov-nav-menu">
+        <li class="gov-nav-item"><a href="index.html" class="gov-nav-link" data-i18n="nav.home">Home</a></li>
+        <li class="gov-nav-item"><a href="farmer-registration.html" class="gov-nav-link" data-i18n="nav.farmers">Farmers</a></li>
+        <li class="gov-nav-item"><a href="procurement-centres.html" class="gov-nav-link active" data-i18n="nav.centres">Procurement Centres</a></li>
+        <li class="gov-nav-item"><a href="slot-booking.html" class="gov-nav-link" data-i18n="nav.schedule">Schedule</a></li>
+        <li class="gov-nav-item"><a href="procurement-status.html" class="gov-nav-link" data-i18n="nav.procurementStatus">Procurement Status</a></li>
+        <li class="gov-nav-item"><a href="payment-status.html" class="gov-nav-link" data-i18n="nav.paymentStatus">Payment Status</a></li>
+        <li class="gov-nav-item"><a href="grievance.html" class="gov-nav-link" data-i18n="nav.grievance">Grievance</a></li>
+      </ul>
+      <div class="gov-nav-right-actions">
+        <a href="procurement-centres.html" class="btn btn-sm btn-secondary">‹ Back to Directory</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Breadcrumbs -->
+  <div class="breadcrumb-wrapper">
+    <div class="container">
+      <ul class="breadcrumbs">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="procurement-centres.html">Procurement Centres</a></li>
+        <li class="current">Centre Details</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main id="main-content" style="padding: 30px 0;">
+    <div class="container">
+
+      <!-- Header Card with CTA -->
+      <div class="card" style="border-left: 5px solid var(--agri-green-primary); margin-bottom: 24px;">
+        <div class="card-body d-flex justify-between align-center flex-wrap gap-2">
+          <div>
+            <div style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">
+              Centre Code: <span id="detail-centre-code" style="font-family: var(--font-mono); color: var(--gov-navy-primary);">PPC-GNT-001</span>
+            </div>
+            <h2 id="detail-centre-name" style="font-size: 1.5rem; color: var(--gov-navy-dark); margin: 4px 0;">
+              Tenali Agricultural Market Yard PPC
+            </h2>
+            <p id="detail-centre-address" class="text-muted" style="margin: 0; font-size: 0.9rem;">
+              Market Yard Complex, Old Bus Stand Road, Tenali, Guntur - 522201
+            </p>
+          </div>
+          <div style="display: flex; gap: 10px; align-items: center;">
+            <span class="badge badge-success" style="padding: 6px 12px; font-size: 0.82rem;">Operational</span>
+            <a id="btn-book-this-centre" href="slot-booking.html" class="btn btn-lg btn-success">
+              Book Slot at this Centre
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Capacity & Live Queue Metrics -->
+      <div class="grid-4" style="margin-bottom: 24px;">
+        <div class="card" style="margin-bottom: 0; border-top: 3px solid var(--gov-navy-primary);">
+          <div class="card-body text-center">
+            <div style="font-size: 0.78rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Today's Capacity</div>
+            <div id="detail-today-capacity" style="font-size: 1.6rem; font-weight: 900; color: var(--gov-navy-dark); margin: 4px 0;">500 Quintals</div>
+            <div style="font-size: 0.75rem; color: var(--text-muted);">Max daily intake</div>
+          </div>
+        </div>
+        <div class="card" style="margin-bottom: 0; border-top: 3px solid #d97706;">
+          <div class="card-body text-center">
+            <div style="font-size: 0.78rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Booked Slots</div>
+            <div id="detail-booked-slots" style="font-size: 1.6rem; font-weight: 900; color: #b45309; margin: 4px 0;">380 Quintals</div>
+            <div style="font-size: 0.75rem; color: var(--text-muted);">76% capacity filled</div>
+          </div>
+        </div>
+        <div class="card" style="margin-bottom: 0; border-top: 3px solid var(--agri-green-primary);">
+          <div class="card-body text-center">
+            <div style="font-size: 0.78rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Available Slots</div>
+            <div id="detail-available-slots" style="font-size: 1.6rem; font-weight: 900; color: var(--agri-green-dark); margin: 4px 0;">120 Quintals</div>
+            <div style="font-size: 0.75rem; color: var(--agri-green-dark); font-weight: 600;">Open for Booking</div>
+          </div>
+        </div>
+        <div class="card" style="margin-bottom: 0; border-top: 3px solid #2563eb;">
+          <div class="card-body text-center">
+            <div style="font-size: 0.78rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Approx. Waiting Time</div>
+            <div id="detail-waiting-time" style="font-size: 1.4rem; font-weight: 900; color: #1e40af; margin: 4px 0;">25 - 35 mins</div>
+            <div style="font-size: 0.75rem; color: var(--text-muted);">From arrival to weighment</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Detail Grid: Officer & Timings vs Map -->
+      <div class="grid-2">
+        
+        <!-- Left: Operating Specifications -->
+        <div class="card">
+          <div class="card-header">
+            <h3>Operational Details &amp; Nodal Authority</h3>
+          </div>
+          <div class="card-body">
+            <div class="grid-2 mb-2">
+              <div>
+                <span class="form-label">Centre Category</span>
+                <strong id="detail-centre-type">Paddy Procurement Centre (PPC)</strong>
+              </div>
+              <div>
+                <span class="form-label">Nodal Agency</span>
+                <strong id="detail-agency-name">AP State Civil Supplies Corporation</strong>
+              </div>
+            </div>
+            <div class="grid-2 mb-2">
+              <div>
+                <span class="form-label">Nodal Officer Name</span>
+                <strong id="detail-officer-name">K. Srinivasulu</strong>
+              </div>
+              <div>
+                <span class="form-label">Designation</span>
+                <span id="detail-officer-desig">Procurement Officer / Tahsildar</span>
+              </div>
+            </div>
+            <div class="grid-2 mb-2">
+              <div>
+                <span class="form-label">Official Phone</span>
+                <a id="detail-officer-phone" href="tel:9440901234" style="font-weight: 700; font-family: var(--font-mono); color: var(--gov-navy-primary);">+91 94409 01234</a>
+              </div>
+              <div>
+                <span class="form-label">Operating Days</span>
+                <strong id="detail-operating-days">Monday to Saturday</strong>
+              </div>
+            </div>
+            <div class="form-group mb-0">
+              <span class="form-label">Daily Receiving Hours</span>
+              <strong id="detail-operating-hours">08:00 AM - 05:00 PM</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Map Placeholder & Infrastructure -->
+        <div class="card">
+          <div class="card-header">
+            <h3>Location Map &amp; On-Site Infrastructure</h3>
+          </div>
+          <div class="card-body">
+            <!-- Stylized Map Placeholder SVG -->
+            <div style="width: 100%; height: 180px; background: #e2e8f0; border-radius: var(--radius-sm); position: relative; overflow: hidden; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center;">
+              <svg width="100%" height="100%" viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg">
+                <!-- Roads -->
+                <rect width="400" height="180" fill="#e2e8f0"/>
+                <path d="M 0,90 Q 150,80 200,90 T 400,80" fill="none" stroke="#ffffff" stroke-width="20"/>
+                <path d="M 180,0 L 180,180" fill="none" stroke="#ffffff" stroke-width="16"/>
+                <path d="M 0,90 Q 150,80 200,90 T 400,80" fill="none" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="6,6"/>
+                <!-- Green Parks / Agricultural Yards -->
+                <rect x="210" y="20" width="160" height="60" rx="4" fill="#dcfce7" stroke="#86efac"/>
+                <text x="290" y="55" font-family="'Segoe UI', sans-serif" font-size="10" fill="#15803d" text-anchor="middle" font-weight="700">Market Yard Holding Bay</text>
+                <!-- Center Pin -->
+                <circle cx="180" cy="90" r="16" fill="#163b6d" opacity="0.2"/>
+                <circle cx="180" cy="90" r="8" fill="#dc2626"/>
+                <circle cx="180" cy="90" r="3" fill="#ffffff"/>
+              </svg>
+              <div style="position: absolute; bottom: 8px; right: 8px; background: rgba(255,255,255,0.9); padding: 3px 8px; font-size: 0.72rem; border-radius: 2px; font-weight: 600;">
+                GPS: 16.2418° N, 80.6481° E
+              </div>
+            </div>
+
+            <div class="mt-2" style="font-size: 0.85rem; line-height: 1.6;">
+              <strong>On-Site Facilities:</strong>
+              <ul style="padding-left: 18px; margin-top: 4px; color: var(--text-dark);">
+                <li>50 MT Digital Electronic Weighbridge (Calibrated by Legal Metrology)</li>
+                <li>4 Digital Moisture Analysers (Instant results in presence of farmer)</li>
+                <li>Covered Grain Yard, Farmer Rest Shed with drinking water &amp; sanitization</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Government Footer -->
+  <footer class="gov-footer">
+    <div class="container gov-footer-bottom">
+      <p style="margin: 0; font-size: 0.76rem;">
+        Website Content Managed by <strong>Department of Civil Supplies, Government of Andhra Pradesh</strong>.<br>
+        Designed, Developed and Hosted by <strong>National Informatics Centre (NIC)</strong>.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/language.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/centres.js"></script>
+</body>
+</html>

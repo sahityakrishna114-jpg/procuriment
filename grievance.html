@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Citizen & Farmer Grievance Redressal Portal - Online Paddy Procurement System, Department of Civil Supplies. File complaints and track resolution status.">
+  <title>Grievance Redressal | Online Paddy Procurement System</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/government.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <style>
+    .grv-tabs-nav {
+      display: flex;
+      border-bottom: 2px solid var(--border-color);
+      margin-bottom: 24px;
+    }
+    .grv-tab {
+      flex: 1;
+      padding: 12px 16px;
+      background: transparent;
+      border: none;
+      border-bottom: 3px solid transparent;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.15s ease;
+    }
+    .grv-tab.active {
+      color: var(--gov-navy-primary);
+      border-bottom-color: var(--gov-navy-primary);
+      background-color: var(--bg-alt);
+    }
+    .grv-tab-panel {
+      display: none;
+    }
+    .grv-tab-panel.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <!-- Accessible Skip Link -->
+  <a href="#main-content" class="skip-to-content">Skip to Main Content</a>
+
+  <!-- Top Tricolor Stripe -->
+  <div class="gov-top-tricolor" aria-hidden="true"></div>
+
+  <!-- Government Top Admin Strip -->
+  <div class="gov-top-bar">
+    <div class="container gov-top-bar-content">
+      <div class="gov-entity-links">
+        <span class="gov-entity-link" data-i18n="gov.india">Government of India</span>
+        <span style="color: rgba(255,255,255,0.3);">|</span>
+        <span class="gov-entity-link" data-i18n="gov.state">Government of Andhra Pradesh</span>
+      </div>
+      <div class="gov-accessibility-controls">
+        <button type="button" id="btn-font-small" class="a11y-btn" aria-label="Decrease Text Size">A-</button>
+        <button type="button" id="btn-font-normal" class="a11y-btn" aria-label="Reset Text Size">A</button>
+        <button type="button" id="btn-font-large" class="a11y-btn" aria-label="Increase Text Size">A+</button>
+        <button type="button" id="btn-contrast-toggle" class="contrast-toggle-btn" aria-label="Toggle High Contrast">Contrast</button>
+        <div class="lang-select-wrapper">
+          <label for="header-lang-select" class="sr-only" style="position: absolute; left: -9999px;">Language</label>
+          <select id="header-lang-select" class="lang-select" aria-label="Select Language">
+            <option value="en">English</option>
+            <option value="te">తెలుగు (Telugu)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Department Branding Header -->
+  <header class="gov-branding-header">
+    <div class="container gov-branding-content">
+      <a href="index.html" class="gov-branding-left">
+        <img src="assets/images/national-emblem.svg" alt="National Emblem of India" class="gov-emblem-img">
+        <div class="gov-title-group">
+          <span class="gov-state-title" data-i18n="gov.state">Government of Andhra Pradesh</span>
+          <span class="gov-dept-title" data-i18n="gov.dept">Department of Civil Supplies</span>
+          <span class="gov-portal-title" data-i18n="gov.portal">Online Paddy Procurement System</span>
+        </div>
+      </a>
+      <div class="gov-branding-right">
+        <img src="assets/images/state-logo.svg" alt="Civil Supplies Seal" class="gov-state-logo-img">
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Navigation Bar -->
+  <nav class="gov-nav-bar" aria-label="Main Navigation">
+    <div class="container gov-nav-container">
+      <button type="button" class="mobile-menu-toggle" aria-expanded="false" aria-controls="main-nav-menu" aria-label="Toggle Navigation Menu">
+        ☰ Menu
+      </button>
+      <ul id="main-nav-menu" class="gov-nav-menu">
+        <li class="gov-nav-item"><a href="index.html" class="gov-nav-link" data-i18n="nav.home">Home</a></li>
+        <li class="gov-nav-item"><a href="farmer-registration.html" class="gov-nav-link" data-i18n="nav.farmers">Farmers</a></li>
+        <li class="gov-nav-item"><a href="procurement-centres.html" class="gov-nav-link" data-i18n="nav.centres">Procurement Centres</a></li>
+        <li class="gov-nav-item"><a href="slot-booking.html" class="gov-nav-link" data-i18n="nav.schedule">Schedule</a></li>
+        <li class="gov-nav-item"><a href="procurement-status.html" class="gov-nav-link" data-i18n="nav.procurementStatus">Procurement Status</a></li>
+        <li class="gov-nav-item"><a href="payment-status.html" class="gov-nav-link" data-i18n="nav.paymentStatus">Payment Status</a></li>
+        <li class="gov-nav-item"><a href="grievance.html" class="gov-nav-link active" data-i18n="nav.grievance">Grievance</a></li>
+      </ul>
+      <div class="gov-nav-right-actions">
+        <a href="farmer-login.html" class="btn btn-sm btn-secondary">Farmer Login</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Breadcrumbs -->
+  <div class="breadcrumb-wrapper">
+    <div class="container">
+      <ul class="breadcrumbs">
+        <li><a href="index.html">Home</a></li>
+        <li class="current">Farmer Grievance Redressal</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main id="main-content" style="padding: 30px 0;">
+    <div class="container">
+      <div style="max-width: 820px; margin: 0 auto;">
+
+        <!-- Portal Header -->
+        <div class="card" style="box-shadow: var(--shadow-card); border-top: 4px solid #dc2626;">
+          <div class="card-header">
+            <h2>Farmer Grievance Redressal Mechanism</h2>
+          </div>
+          <div class="card-body">
+
+            <!-- Tab Navigation -->
+            <div class="grv-tabs-nav" role="tablist">
+              <button type="button" class="grv-tab active" data-tab="tab-file-grv" role="tab" aria-selected="true">
+                📝 Register New Grievance
+              </button>
+              <button type="button" class="grv-tab" data-tab="tab-track-grv" role="tab" aria-selected="false">
+                🔍 Track Grievance Status
+              </button>
+            </div>
+
+            <!-- Panel 1: Lodge Grievance Form -->
+            <div id="tab-file-grv" class="grv-tab-panel active" role="tabpanel">
+              <div class="alert alert-info">
+                <strong>Citizen Charter Timeframe:</strong> All registered procurement complaints are forwarded to the Sub-Divisional Nodal Officer and addressed within 72 working hours.
+              </div>
+
+              <form id="grievance-form" onsubmit="submitGrievanceForm(event)">
+                <div class="grid-2">
+                  <div class="form-group">
+                    <label for="grv-reg-number" class="form-label">Farmer Registration Number <span class="required">*</span></label>
+                    <input type="text" id="grv-reg-number" class="form-control" placeholder="e.g. FMR-AP-2026-7821" value="FMR-AP-2026-7821" style="text-transform: uppercase;">
+                  </div>
+                  <div class="form-group">
+                    <label for="grv-mobile-number" class="form-label">Contact Mobile Number <span class="required">*</span></label>
+                    <input type="tel" id="grv-mobile-number" class="form-control" placeholder="10-digit mobile" maxlength="10" value="9876543210">
+                  </div>
+                </div>
+
+                <div class="grid-2">
+                  <div class="form-group">
+                    <label for="grv-category-select" class="form-label">Grievance Category <span class="required">*</span></label>
+                    <select id="grv-category-select" class="form-control">
+                      <option value="">-- Choose Relevant Category --</option>
+                      <option value="Long Waiting Time">Long Waiting Time at Centre</option>
+                      <option value="Slot Issue">Slot Booking / Token Schedule Issue</option>
+                      <option value="Procurement Delayed">Procurement Delayed by Millers/Agency</option>
+                      <option value="Weighment Issue">Weighment Issue / Weighbridge Discrepancy</option>
+                      <option value="Quality Rejection">Unjustified Quality Rejection / Moisture Dispute</option>
+                      <option value="Payment Delay" selected>Payment Delay / Bank DBT Issue</option>
+                      <option value="Centre Closed">Procurement Centre Closed during Hours</option>
+                      <option value="Staff Behaviour">Staff / Official Misbehaviour</option>
+                      <option value="Other">Other Operational Grievance</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="grv-centre-select" class="form-label">Procurement Centre (Optional)</label>
+                    <select id="grv-centre-select" class="form-control">
+                      <!-- Populated dynamically -->
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="grv-description" class="form-label">Detailed Description of Complaint <span class="required">*</span></label>
+                  <textarea id="grv-description" class="form-control" rows="4" placeholder="Describe the date, centre, problem faced, and specific relief requested...">Weighment slip for 30 quintals was completed on August 28, but subsidy payment is still not credited to my SBI account. Please expedite treasury release.</textarea>
+                  <span class="form-hint">Minimum 15 characters. Be clear and specific.</span>
+                </div>
+
+                <div class="form-group">
+                  <label for="grv-attachment" class="form-label">Supporting Document / Photo (Optional)</label>
+                  <input type="file" id="grv-attachment" class="form-control" accept=".jpg,.jpeg,.png,.pdf">
+                  <span class="form-hint">Upload receipt copy, weighment slip photo, or passbook statement (Max 2MB).</span>
+                </div>
+
+                <div class="mt-3">
+                  <button type="submit" class="btn btn-primary btn-lg">
+                    Submit Grievance &amp; Obtain Token
+                  </button>
+                </div>
+              </form>
+            </div>
+
+            <!-- Panel 2: Track Status -->
+            <div id="tab-track-grv" class="grv-tab-panel" role="tabpanel">
+              <div class="form-group">
+                <label for="grv-search-input" class="form-label">Enter Grievance Token Number or Mobile Number <span class="required">*</span></label>
+                <div class="d-flex gap-2">
+                  <input type="text" id="grv-search-input" class="form-control" placeholder="e.g. GRV-2026-001245 or Mobile" value="GRV-2026-001245" style="text-transform: uppercase;">
+                  <button type="button" class="btn btn-primary" onclick="searchGrievanceStatus()">
+                    Check Status
+                  </button>
+                </div>
+              </div>
+
+              <!-- Search Results Injected Here -->
+              <div id="grv-search-results" class="mt-3">
+                <!-- Injected dynamically by grievance.js -->
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Grievance Success Modal -->
+  <div id="grievance-success-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="grv-modal-title">
+    <div class="modal-dialog text-center">
+      <div class="modal-header" style="background: var(--gov-navy-primary);">
+        <h3 id="grv-modal-title">Grievance Registered</h3>
+        <button type="button" class="modal-close" onclick="closeModal('grievance-success-modal')" aria-label="Close">&times;</button>
+      </div>
+      <div class="modal-body" style="padding: 24px 20px;">
+        <div style="font-size: 2.5rem; color: var(--agri-green-primary); margin-bottom: 10px;">⚖️</div>
+        <h3 style="color: var(--gov-navy-dark); margin-bottom: 6px;">Grievance Lodged Successfully</h3>
+        <p class="text-muted" style="font-size: 0.88rem;">
+          Your complaint has been logged in the State e-Procurement Grievance Portal and assigned to the District Civil Supplies Nodal Officer.
+        </p>
+
+        <div class="alert alert-info mt-2">
+          Tracking Token Number:<br>
+          <strong id="grv-success-token" style="font-size: 1.4rem; font-family: var(--font-mono); color: #1e40af;">
+            GRV-2026-001245
+          </strong>
+        </div>
+
+        <p style="font-size: 0.82rem; color: var(--text-muted);">
+          Keep this tracking number for all future inquiries. An acknowledgment SMS has been dispatched to your mobile.
+        </p>
+      </div>
+      <div class="modal-footer" style="justify-content: center;">
+        <button type="button" class="btn btn-primary" onclick="closeModal('grievance-success-modal')">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Government Footer -->
+  <footer class="gov-footer">
+    <div class="container gov-footer-bottom">
+      <p style="margin: 0; font-size: 0.76rem;">
+        Website Content Managed by <strong>Department of Civil Supplies, Government of Andhra Pradesh</strong>.<br>
+        Designed, Developed and Hosted by <strong>National Informatics Centre (NIC)</strong>.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/language.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/grievance.js"></script>
+</body>
+</html>

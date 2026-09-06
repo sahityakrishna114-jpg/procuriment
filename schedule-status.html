@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Check Schedule Status - Online Paddy Procurement System, Department of Civil Supplies. Search by Token Number or Farmer Registration Number to view delivery schedule.">
+  <title>Check Schedule Status | Online Paddy Procurement System</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/government.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <!-- Accessible Skip Link -->
+  <a href="#main-content" class="skip-to-content">Skip to Main Content</a>
+
+  <!-- Top Tricolor Stripe -->
+  <div class="gov-top-tricolor" aria-hidden="true"></div>
+
+  <!-- Government Top Admin Strip -->
+  <div class="gov-top-bar">
+    <div class="container gov-top-bar-content">
+      <div class="gov-entity-links">
+        <span class="gov-entity-link" data-i18n="gov.india">Government of India</span>
+        <span style="color: rgba(255,255,255,0.3);">|</span>
+        <span class="gov-entity-link" data-i18n="gov.state">Government of Andhra Pradesh</span>
+      </div>
+      <div class="gov-accessibility-controls">
+        <button type="button" id="btn-font-small" class="a11y-btn" aria-label="Decrease Text Size">A-</button>
+        <button type="button" id="btn-font-normal" class="a11y-btn" aria-label="Reset Text Size">A</button>
+        <button type="button" id="btn-font-large" class="a11y-btn" aria-label="Increase Text Size">A+</button>
+        <button type="button" id="btn-contrast-toggle" class="contrast-toggle-btn" aria-label="Toggle High Contrast">Contrast</button>
+        <div class="lang-select-wrapper">
+          <label for="header-lang-select" class="sr-only" style="position: absolute; left: -9999px;">Language</label>
+          <select id="header-lang-select" class="lang-select" aria-label="Select Language">
+            <option value="en">English</option>
+            <option value="te">తెలుగు (Telugu)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Department Branding Header -->
+  <header class="gov-branding-header">
+    <div class="container gov-branding-content">
+      <a href="index.html" class="gov-branding-left">
+        <img src="assets/images/national-emblem.svg" alt="National Emblem of India" class="gov-emblem-img">
+        <div class="gov-title-group">
+          <span class="gov-state-title" data-i18n="gov.state">Government of Andhra Pradesh</span>
+          <span class="gov-dept-title" data-i18n="gov.dept">Department of Civil Supplies</span>
+          <span class="gov-portal-title" data-i18n="gov.portal">Online Paddy Procurement System</span>
+        </div>
+      </a>
+      <div class="gov-branding-right">
+        <img src="assets/images/state-logo.svg" alt="Civil Supplies Seal" class="gov-state-logo-img">
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Navigation Bar -->
+  <nav class="gov-nav-bar" aria-label="Main Navigation">
+    <div class="container gov-nav-container">
+      <button type="button" class="mobile-menu-toggle" aria-expanded="false" aria-controls="main-nav-menu" aria-label="Toggle Navigation Menu">
+        ☰ Menu
+      </button>
+      <ul id="main-nav-menu" class="gov-nav-menu">
+        <li class="gov-nav-item"><a href="index.html" class="gov-nav-link" data-i18n="nav.home">Home</a></li>
+        <li class="gov-nav-item"><a href="farmer-registration.html" class="gov-nav-link" data-i18n="nav.farmers">Farmers</a></li>
+        <li class="gov-nav-item"><a href="procurement-centres.html" class="gov-nav-link" data-i18n="nav.centres">Procurement Centres</a></li>
+        <li class="gov-nav-item"><a href="slot-booking.html" class="gov-nav-link active" data-i18n="nav.schedule">Schedule</a></li>
+        <li class="gov-nav-item"><a href="procurement-status.html" class="gov-nav-link" data-i18n="nav.procurementStatus">Procurement Status</a></li>
+        <li class="gov-nav-item"><a href="payment-status.html" class="gov-nav-link" data-i18n="nav.paymentStatus">Payment Status</a></li>
+        <li class="gov-nav-item"><a href="grievance.html" class="gov-nav-link" data-i18n="nav.grievance">Grievance</a></li>
+      </ul>
+      <div class="gov-nav-right-actions">
+        <a href="farmer-login.html" class="btn btn-sm btn-secondary">Farmer Login</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Breadcrumbs -->
+  <div class="breadcrumb-wrapper">
+    <div class="container">
+      <ul class="breadcrumbs">
+        <li><a href="index.html">Home</a></li>
+        <li>Schedule</li>
+        <li class="current">Check Schedule Status</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main id="main-content" style="padding: 30px 0;">
+    <div class="container">
+      <div style="max-width: 760px; margin: 0 auto;">
+
+        <!-- Search Card -->
+        <div class="card" style="box-shadow: var(--shadow-card); border-top: 4px solid var(--gov-navy-primary); margin-bottom: 24px;">
+          <div class="card-header">
+            <h3>Check Delivery Schedule &amp; Token Details</h3>
+          </div>
+          <div class="card-body">
+            <p class="text-muted" style="font-size: 0.88rem; margin-bottom: 16px;">
+              Enter your <strong>Token Number</strong> (e.g. PPC-2026-1042) or your <strong>Farmer Registration ID</strong> (e.g. FMR-AP-2026-7821) to verify appointment details.
+            </p>
+            <div class="d-flex gap-2 flex-wrap">
+              <input type="text" id="schedule-search-input" class="form-control" placeholder="Enter Token No (PPC-2026-1042) or Farmer ID" value="PPC-2026-1042" style="flex: 1; text-transform: uppercase;">
+              <button type="button" class="btn btn-primary" onclick="lookupSchedule()">
+                Search Schedule
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Schedule Results Container -->
+        <div id="schedule-results-container">
+          <!-- Populated by script -->
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Government Footer -->
+  <footer class="gov-footer">
+    <div class="container gov-footer-bottom">
+      <p style="margin: 0; font-size: 0.76rem;">
+        Website Content Managed by <strong>Department of Civil Supplies, Government of Andhra Pradesh</strong>.<br>
+        Designed, Developed and Hosted by <strong>National Informatics Centre (NIC)</strong>.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/language.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    function lookupSchedule() {
+      const query = document.getElementById("schedule-search-input")?.value.trim().toUpperCase();
+      const container = document.getElementById("schedule-results-container");
+      if (!query || !container) return;
+
+      const schedules = JSON.parse(localStorage.getItem("epaddy_schedules") || "[]");
+      const match = schedules.find((s) => s.tokenNumber.toUpperCase() === query || s.farmerId.toUpperCase() === query);
+
+      if (!match) {
+        container.innerHTML = `
+          <div class="alert alert-warning">
+            No schedule appointment found matching "${query}". Please check the token number or book a fresh slot.
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = `
+        <div class="card" style="border: 2px solid var(--gov-navy-primary); box-shadow: var(--shadow-card);">
+          <div class="card-header d-flex justify-between align-center" style="background: var(--bg-alt);">
+            <div>
+              <strong style="font-family: var(--font-mono); font-size: 1.15rem; color: var(--gov-navy-primary);">
+                ${match.tokenNumber}
+              </strong>
+              <span class="badge ${match.status === 'Completed' ? 'badge-success' : 'badge-info'}" style="margin-left: 8px;">
+                ${match.status}
+              </span>
+            </div>
+            <span style="font-size: 0.85rem; color: var(--text-muted);">Status: Active Schedule</span>
+          </div>
+          <div class="card-body">
+            <div class="grid-2 mb-2">
+              <div>
+                <span class="form-label">Farmer Particulars</span>
+                <strong>${match.farmerName}</strong><br>
+                <span class="text-muted">Farmer ID: ${match.farmerId}</span><br>
+                <span class="text-muted">Mobile: XXXX-XX-${match.mobile ? match.mobile.slice(-4) : "8921"}</span>
+              </div>
+              <div>
+                <span class="form-label">Procurement Centre</span>
+                <strong style="color: var(--gov-navy-primary);">${match.centreName}</strong><br>
+                <span class="text-muted">${match.centreAddress}</span>
+              </div>
+            </div>
+
+            <div class="grid-3 mt-2" style="border-top: 1px solid var(--border-color); padding-top: 14px;">
+              <div>
+                <span class="form-label">Scheduled Date</span>
+                <strong>${match.date}</strong>
+              </div>
+              <div>
+                <span class="form-label">Delivery Slot</span>
+                <strong>${match.timeSlot}</strong>
+              </div>
+              <div>
+                <span class="form-label">Booked Quantity</span>
+                <strong style="color: var(--agri-green-dark);">${match.scheduledQuantity} Quintals</strong>
+              </div>
+            </div>
+
+            <div class="alert alert-info mt-2" style="margin-bottom: 0;">
+              <strong>Instructions for Arrival:</strong> Please arrive 15 minutes before your time slot. Bring your printed Token Slip, Original Aadhaar Card, and Bank Passbook copy.
+            </div>
+          </div>
+          <div class="card-footer d-flex justify-between align-center">
+            <a href="receipt.html?token=${match.tokenNumber}" class="btn btn-outline-navy">
+              📄 View &amp; Print Token Slip
+            </a>
+            <a href="procurement-status.html?reg=${match.farmerId}" class="btn btn-primary">
+              Track Real-Time Status ›
+            </a>
+          </div>
+        </div>
+      `;
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      lookupSchedule();
+    });
+  </script>
+</body>
+</html>

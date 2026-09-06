@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 150" width="120" height="150" aria-label="National Emblem of India Placeholder">
+  <g fill="#0c2340">
+    <!-- Top central lion head -->
+    <path d="M50,15 C50,8 70,8 70,15 C75,15 78,20 78,26 C78,32 72,38 72,42 C72,46 68,50 60,50 C52,50 48,46 48,42 C48,38 42,32 42,26 C42,20 45,15 50,15 Z"/>
+    <!-- Left lion head silhouette -->
+    <path d="M35,22 C30,18 20,22 22,30 C22,38 28,42 32,46 C36,50 44,52 46,50 C44,44 40,38 38,32 C38,28 36,25 35,22 Z"/>
+    <!-- Right lion head silhouette -->
+    <path d="M85,22 C90,18 100,22 98,30 C98,38 92,42 88,46 C84,50 76,52 74,50 C76,44 80,38 82,32 C82,28 84,25 85,22 Z"/>
+    <!-- Central lion mane & body -->
+    <path d="M46,45 C46,55 42,65 40,78 L80,78 C78,65 74,55 74,45 C70,48 65,49 60,49 C55,49 50,48 46,45 Z"/>
+    <!-- Left lion body -->
+    <path d="M26,45 C24,55 25,68 36,78 L42,78 C44,65 47,56 46,48 C40,49 32,48 26,45 Z"/>
+    <!-- Right lion body -->
+    <path d="M94,45 C96,55 95,68 84,78 L78,78 C76,65 73,56 74,48 C80,49 88,48 94,45 Z"/>
+    <!-- Capital Abacus base ring -->
+    <rect x="20" y="80" width="80" height="7" rx="3" fill="#0c2340"/>
+    <!-- Central Ashoka Chakra on abacus -->
+    <circle cx="60" cy="95" r="7" fill="none" stroke="#0c2340" stroke-width="2"/>
+    <circle cx="60" cy="95" r="2" fill="#0c2340"/>
+    <!-- Spoke indicators -->
+    <line x1="60" y1="88" x2="60" y2="102" stroke="#0c2340" stroke-width="1"/>
+    <line x1="53" y1="95" x2="67" y2="95" stroke="#0c2340" stroke-width="1"/>
+    <line x1="55" y1="90" x2="65" y2="100" stroke="#0c2340" stroke-width="1"/>
+    <line x1="55" y1="100" x2="65" y2="90" stroke="#0c2340" stroke-width="1"/>
+    <!-- Bull on right side silhouette -->
+    <path d="M78,92 Q85,88 92,93 Q94,97 90,99 L76,99 Z" fill="#0c2340"/>
+    <!-- Horse on left side silhouette -->
+    <path d="M42,92 Q35,88 28,93 Q26,97 30,99 L44,99 Z" fill="#0c2340"/>
+    <!-- Lower abacus plinth -->
+    <rect x="15" y="103" width="90" height="6" rx="2" fill="#0c2340"/>
+    <!-- Inverted Lotus bell base -->
+    <path d="M22,111 Q60,119 98,111 Q92,126 60,126 Q28,126 22,111 Z" fill="#0c2340"/>
+    <!-- Satyameva Jayate Devnagari stylized text placeholder -->
+    <text x="60" y="142" font-family="'Noto Sans', 'Segoe UI', serif" font-size="10" font-weight="700" text-anchor="middle" fill="#0c2340" letter-spacing="1">सत्यमेव जयते</text>
+  </g>
+</svg>

@@ -1,0 +1,203 @@
+/* ==========================================================================
+   e-Paddy Portal: Responsive Layouts & Mobile Adaptation
+   Breakpoints: 992px (Tablet) & 640px (Mobile)
+   ========================================================================== */
+
+/* Medium Devices (Tablets, 992px and below) */
+@media (max-width: 992px) {
+  .gov-branding-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .gov-branding-right {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .mobile-menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .gov-nav-menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  .gov-nav-menu.open {
+    display: flex;
+  }
+
+  .gov-nav-link {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 12px 18px;
+  }
+
+  .gov-nav-container {
+    flex-wrap: wrap;
+  }
+
+  .gov-nav-right-actions {
+    margin-left: auto;
+    padding: 8px 0;
+  }
+
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .gov-footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .procurement-stepper {
+    flex-wrap: wrap;
+    gap: 14px;
+    justify-content: center;
+  }
+
+  .procurement-stepper::before,
+  .stepper-progress-bar {
+    display: none;
+  }
+
+  .step-item {
+    width: 120px;
+    margin-bottom: 10px;
+  }
+}
+
+/* Small Devices (Mobiles, 640px and below) */
+@media (max-width: 640px) {
+  :root {
+    --base-font-size: 14.5px;
+  }
+
+  .container {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  h1 { font-size: 1.5rem; }
+  h2 { font-size: 1.3rem; }
+  h3 { font-size: 1.15rem; }
+
+  .gov-top-bar-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .gov-accessibility-controls {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .gov-branding-left {
+    gap: 10px;
+  }
+
+  .gov-emblem-img {
+    width: 40px;
+    height: 50px;
+  }
+
+  .gov-state-title {
+    font-size: 0.72rem;
+  }
+
+  .gov-dept-title {
+    font-size: 0.92rem;
+  }
+
+  .gov-portal-title {
+    font-size: 1.15rem;
+  }
+
+  .gov-state-logo-img {
+    width: 45px;
+    height: 45px;
+  }
+
+  .gov-helpline-box {
+    padding: 4px 8px;
+  }
+
+  .helpline-number {
+    font-size: 0.85rem;
+  }
+
+  .grid-2,
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .card-footer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .card-footer .btn {
+    width: 100%;
+  }
+
+  .receipt-grid-info {
+    grid-template-columns: 1fr;
+  }
+
+  .receipt-signatures {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .sig-box {
+    width: 100%;
+  }
+
+  .gov-footer-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  /* Make tables responsive cards on tiny mobile screens if needed */
+  .table-responsive {
+    border: none;
+  }
+
+  .gov-table {
+    font-size: 0.82rem;
+  }
+
+  .gov-table th,
+  .gov-table td {
+    padding: 8px 10px;
+  }
+
+  .btn {
+    min-height: 42px; /* Touch target standard */
+  }
+
+  .modal-dialog {
+    margin: 10px;
+    max-width: calc(100% - 20px);
+  }
+}

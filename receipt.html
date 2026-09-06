@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Procurement Purchase Receipt & Weighment Slip - Department of Civil Supplies, Government of Andhra Pradesh. Official digital receipt for paddy delivery.">
+  <title>Procurement Purchase Receipt | Department of Civil Supplies</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/government.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <!-- Accessible Skip Link -->
+  <a href="#main-content" class="skip-to-content no-print">Skip to Main Content</a>
+
+  <!-- Top Tricolor Stripe -->
+  <div class="gov-top-tricolor no-print" aria-hidden="true"></div>
+
+  <!-- Government Top Admin Strip -->
+  <div class="gov-top-bar no-print">
+    <div class="container gov-top-bar-content">
+      <div class="gov-entity-links">
+        <span class="gov-entity-link" data-i18n="gov.india">Government of India</span>
+        <span style="color: rgba(255,255,255,0.3);">|</span>
+        <span class="gov-entity-link" data-i18n="gov.state">Government of Andhra Pradesh</span>
+      </div>
+      <div class="gov-accessibility-controls">
+        <button type="button" id="btn-font-small" class="a11y-btn" aria-label="Decrease Text Size">A-</button>
+        <button type="button" id="btn-font-normal" class="a11y-btn" aria-label="Reset Text Size">A</button>
+        <button type="button" id="btn-font-large" class="a11y-btn" aria-label="Increase Text Size">A+</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header Actions (Visible on Screen, Hidden during Print) -->
+  <div class="no-print" style="background: #ffffff; padding: 12px 0; border-bottom: 1px solid var(--border-color);">
+    <div class="container d-flex justify-between align-center flex-wrap gap-2">
+      <div class="d-flex align-center gap-2">
+        <a href="farmer-dashboard.html" class="btn btn-sm btn-secondary">‹ Back to Dashboard</a>
+        <span style="font-size: 0.85rem; color: var(--text-muted);">
+          Document Type: <strong>Official Government Purchase Receipt (KMS 2026-27)</strong>
+        </span>
+      </div>
+      <div class="d-flex gap-2">
+        <button type="button" class="btn btn-primary" onclick="window.print()">
+          🖨️ Print Receipt
+        </button>
+        <button type="button" class="btn btn-secondary" onclick="simulateDownload()">
+          📥 Download PDF
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Printable Paper Container -->
+  <main id="main-content" style="padding: 20px 0;">
+    <div class="container">
+      
+      <div class="receipt-paper">
+        <!-- Watermark -->
+        <img src="assets/images/state-logo.svg" alt="" class="receipt-watermark" aria-hidden="true">
+
+        <!-- Receipt Header -->
+        <div class="receipt-header">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+            <img src="assets/images/national-emblem.svg" alt="National Emblem" style="width: 48px; height: 60px;">
+            <div style="text-align: center;">
+              <h3 style="font-size: 0.95rem; font-weight: 700; color: #475569; text-transform: uppercase; margin: 0;">
+                GOVERNMENT OF ANDHRA PRADESH
+              </h3>
+              <h2 style="font-size: 1.25rem; font-weight: 800; color: #0c2340; margin: 2px 0;">
+                DEPARTMENT OF CIVIL SUPPLIES
+              </h2>
+              <div style="font-size: 0.8rem; font-weight: 600; color: #1b5e20;">
+                Andhra Pradesh State Civil Supplies Corporation Limited (APSCSCL)
+              </div>
+            </div>
+            <img src="assets/images/state-logo.svg" alt="Civil Supplies Seal" style="width: 55px; height: 55px;">
+          </div>
+          
+          <div class="receipt-title">
+            OFFICIAL PADDY PROCUREMENT RECEIPT &amp; WEIGHMENT SLIP
+          </div>
+          <div class="receipt-subtitle">
+            Kharif Marketing Season (KMS) 2026-27 | Generated under Section 3 of Essential Commodities Act
+          </div>
+        </div>
+
+        <!-- Receipt Metadata Top Bar -->
+        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); padding-bottom: 8px; margin-bottom: 16px; font-size: 0.88rem;">
+          <div>
+            <strong>Receipt No:</strong> <span id="rcp-number" style="font-family: var(--font-mono); font-weight: 800; color: #1e40af;">RCP-AP-2026-894102</span>
+          </div>
+          <div>
+            <strong>Delivery Token No:</strong> <span id="rcp-token" style="font-family: var(--font-mono); font-weight: 800;">PPC-2026-0918</span>
+          </div>
+          <div>
+            <strong>Date &amp; Time:</strong> <span id="rcp-date">28 August 2026, 11:00 AM</span>
+          </div>
+        </div>
+
+        <!-- Grid 1: Farmer & Centre Details -->
+        <div class="receipt-grid-info">
+          <div style="background: #f8fafc; padding: 12px; border: 1px solid var(--border-color); border-radius: var(--radius-sm);">
+            <div style="font-size: 0.76rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; border-bottom: 1px solid var(--border-color); padding-bottom: 4px; margin-bottom: 6px;">
+              Farmer Particulars
+            </div>
+            <div><strong>Farmer Name:</strong> <span id="rcp-farmer-name">Ramesh Kumar</span></div>
+            <div><strong>Farmer ID:</strong> <span id="rcp-farmer-id" style="font-family: var(--font-mono);">FMR-AP-2026-7821</span></div>
+            <div><strong>Krishak Bandhu / ID:</strong> KB-2026-90412</div>
+            <div><strong>Father's Name:</strong> Venkata Narayana</div>
+            <div><strong>Village / Mandal:</strong> Angalakuduru, Tenali Mandal</div>
+            <div><strong>District:</strong> Guntur District, AP</div>
+            <div><strong>Linked Bank:</strong> State Bank of India (A/C: XXXXXXXX4819)</div>
+          </div>
+
+          <div style="background: #f8fafc; padding: 12px; border: 1px solid var(--border-color); border-radius: var(--radius-sm);">
+            <div style="font-size: 0.76rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; border-bottom: 1px solid var(--border-color); padding-bottom: 4px; margin-bottom: 6px;">
+              Procurement Centre Particulars
+            </div>
+            <div><strong>Centre Name:</strong> <span id="rcp-centre-name">Tenali Agricultural Market Yard PPC</span></div>
+            <div><strong>Centre Code:</strong> PPC-GNT-001</div>
+            <div><strong>Procuring Agency:</strong> AP State Civil Supplies Corp</div>
+            <div><strong>Nodal Officer:</strong> K. Srinivasulu (Procurement Officer)</div>
+            <div><strong>Weighbridge Slip Ref:</strong> WB-GNT-89021 (50 MT Electronic)</div>
+            <div><strong>Moisture Content:</strong> 14.2% (Permissible FAQ &le; 17.0%)</div>
+            <div><strong>Quality Grade:</strong> Grade 'A' Paddy</div>
+          </div>
+        </div>
+
+        <!-- Weighment & Billing Table -->
+        <div class="table-responsive" style="margin-bottom: 20px;">
+          <table class="gov-table" style="font-size: 0.88rem;">
+            <thead>
+              <tr>
+                <th>Item / Commodity</th>
+                <th>Variety</th>
+                <th>Gross Weight (Kg)</th>
+                <th>Tare Weight (Kg)</th>
+                <th>Net Weight (Quintals)</th>
+                <th>Official MSP Rate</th>
+                <th>Gross Value (₹)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Paddy (Dhan)</strong></td>
+                <td>Paddy Grade 'A'</td>
+                <td class="number-cell">5,450</td>
+                <td class="number-cell">2,450</td>
+                <td class="number-cell"><strong>30.00 Qtl</strong></td>
+                <td class="number-cell">₹2,320.00</td>
+                <td class="number-cell"><strong style="font-size: 1rem; color: var(--gov-navy-dark);">₹69,600.00</strong></td>
+              </tr>
+              <tr>
+                <td colspan="6" style="text-align: right; font-weight: 600;">Allowable Quality / Moisture Deductions:</td>
+                <td class="number-cell" style="color: var(--agri-green-dark);">₹0.00</td>
+              </tr>
+              <tr style="background: #f0fdf4; font-weight: 800;">
+                <td colspan="6" style="text-align: right; font-size: 1rem; color: #166534;">NET PAYABLE AMOUNT (DBT):</td>
+                <td class="number-cell" style="font-size: 1.15rem; color: #166534;">₹69,600.00</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Amount in Words -->
+        <div style="background: #f1f5f9; padding: 10px 14px; border-radius: var(--radius-sm); margin-bottom: 20px; font-size: 0.88rem;">
+          <strong>Amount in Words:</strong> Rupees Sixty-Nine Thousand Six Hundred Only.
+        </div>
+
+        <!-- Signatures and Digital Stamp Verification Box -->
+        <div class="receipt-signatures">
+          <div class="sig-box">
+            <div style="height: 45px; display: flex; align-items: center; justify-content: center; font-family: 'Brush Script MT', cursive; font-size: 1.3rem; color: #163b6d;">
+              Ramesh Kumar
+            </div>
+            <div class="sig-line">
+              Signature / Thumb Impression of Farmer
+            </div>
+          </div>
+
+          <div style="text-align: center;">
+            <img src="assets/images/qr-code.svg" alt="Official Verification QR" style="width: 75px; height: 75px; border: 1px solid #cbd5e1; padding: 2px;">
+            <div style="font-size: 0.68rem; color: var(--text-muted); margin-top: 2px;">Scan to Verify on e-Paddy</div>
+          </div>
+
+          <div class="sig-box">
+            <img src="assets/images/digital-signature.svg" alt="Digital Signature" style="width: 170px; height: auto; margin-bottom: 4px;">
+            <div class="sig-line">
+              Nodal Officer / Tahsildar (e-Signed)
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer Notice -->
+        <div style="margin-top: 30px; border-top: 1px solid var(--border-color); padding-top: 10px; font-size: 0.74rem; color: var(--text-muted); text-align: center; line-height: 1.5;">
+          This is a system-generated official receipt issued by the Department of Civil Supplies, Government of Andhra Pradesh. No physical signature is required. Direct Benefit Transfer (DBT) payment is remitted via RBI e-Kuber gateway directly to the registered Aadhaar-seeded bank account. For disputes, contact Toll-Free Helpline 1967.
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Government Footer (Hidden in print) -->
+  <footer class="gov-footer no-print">
+    <div class="container gov-footer-bottom">
+      <p style="margin: 0; font-size: 0.76rem;">
+        Website Content Managed by <strong>Department of Civil Supplies, Government of Andhra Pradesh</strong>.<br>
+        Designed, Developed and Hosted by <strong>National Informatics Centre (NIC)</strong>.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/language.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    function simulateDownload() {
+      showToast("Preparing official PDF receipt...", "info");
+      setTimeout(() => {
+        window.print();
+      }, 500);
+    }
+
+    // Dynamic parameter handling
+    document.addEventListener("DOMContentLoaded", () => {
+      const params = new URLSearchParams(window.location.search);
+      const token = params.get("token");
+
+      if (token) {
+        const schedules = JSON.parse(localStorage.getItem("epaddy_schedules") || "[]");
+        const match = schedules.find((s) => s.tokenNumber === token);
+        if (match) {
+          document.getElementById("rcp-token").textContent = match.tokenNumber;
+          document.getElementById("rcp-farmer-name").textContent = match.farmerName;
+          document.getElementById("rcp-farmer-id").textContent = match.farmerId;
+          document.getElementById("rcp-centre-name").textContent = match.centreName;
+          if (match.receiptNumber) {
+            document.getElementById("rcp-number").textContent = match.receiptNumber;
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

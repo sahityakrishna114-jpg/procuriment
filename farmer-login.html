@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Farmer Login - Online Paddy Procurement System, Department of Civil Supplies. Secure OTP login via Registration Number, Mobile, or Aadhaar.">
+  <title>Farmer Login | Online Paddy Procurement System</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/government.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <style>
+    .auth-tabs-nav {
+      display: flex;
+      border-bottom: 2px solid var(--border-color);
+      margin-bottom: 20px;
+    }
+    .auth-tab {
+      flex: 1;
+      padding: 10px 12px;
+      background: transparent;
+      border: none;
+      border-bottom: 3px solid transparent;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.15s ease;
+    }
+    .auth-tab.active {
+      color: var(--gov-navy-primary);
+      border-bottom-color: var(--gov-navy-primary);
+      background-color: var(--bg-alt);
+    }
+    .auth-tab-content {
+      display: none;
+    }
+    .auth-tab-content.active {
+      display: block;
+    }
+    .captcha-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .captcha-display {
+      background: #e2e8f0;
+      padding: 8px 16px;
+      font-family: 'Consolas', 'Courier New', monospace;
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: 5px;
+      color: #0c2340;
+      border-radius: var(--radius-sm);
+      border: 1px dashed #94a3b8;
+      user-select: none;
+    }
+    .otp-grid {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      margin: 20px 0;
+    }
+    .otp-box {
+      width: 44px;
+      height: 50px;
+      text-align: center;
+      font-size: 1.4rem;
+      font-weight: 700;
+      font-family: var(--font-mono);
+      border: 2px solid var(--border-color);
+      border-radius: var(--radius-sm);
+    }
+    .otp-box:focus {
+      border-color: var(--gov-navy-primary);
+      outline: none;
+    }
+  </style>
+</head>
+<body>
+  <!-- Accessible Skip Link -->
+  <a href="#main-content" class="skip-to-content">Skip to Main Content</a>
+
+  <!-- Top Tricolor Stripe -->
+  <div class="gov-top-tricolor" aria-hidden="true"></div>
+
+  <!-- Government Top Admin Strip -->
+  <div class="gov-top-bar">
+    <div class="container gov-top-bar-content">
+      <div class="gov-entity-links">
+        <span class="gov-entity-link" data-i18n="gov.india">Government of India</span>
+        <span style="color: rgba(255,255,255,0.3);">|</span>
+        <span class="gov-entity-link" data-i18n="gov.state">Government of Andhra Pradesh</span>
+      </div>
+      <div class="gov-accessibility-controls">
+        <button type="button" id="btn-font-small" class="a11y-btn" aria-label="Decrease Text Size">A-</button>
+        <button type="button" id="btn-font-normal" class="a11y-btn" aria-label="Reset Text Size">A</button>
+        <button type="button" id="btn-font-large" class="a11y-btn" aria-label="Increase Text Size">A+</button>
+        <button type="button" id="btn-contrast-toggle" class="contrast-toggle-btn" aria-label="Toggle High Contrast">Contrast</button>
+        <div class="lang-select-wrapper">
+          <label for="header-lang-select" class="sr-only" style="position: absolute; left: -9999px;">Language</label>
+          <select id="header-lang-select" class="lang-select" aria-label="Select Language">
+            <option value="en">English</option>
+            <option value="te">తెలుగు (Telugu)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Department Branding Header -->
+  <header class="gov-branding-header">
+    <div class="container gov-branding-content">
+      <a href="index.html" class="gov-branding-left">
+        <img src="assets/images/national-emblem.svg" alt="National Emblem of India" class="gov-emblem-img">
+        <div class="gov-title-group">
+          <span class="gov-state-title" data-i18n="gov.state">Government of Andhra Pradesh</span>
+          <span class="gov-dept-title" data-i18n="gov.dept">Department of Civil Supplies</span>
+          <span class="gov-portal-title" data-i18n="gov.portal">Online Paddy Procurement System</span>
+        </div>
+      </a>
+      <div class="gov-branding-right">
+        <img src="assets/images/state-logo.svg" alt="Civil Supplies Seal" class="gov-state-logo-img">
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Navigation Bar -->
+  <nav class="gov-nav-bar" aria-label="Main Navigation">
+    <div class="container gov-nav-container">
+      <button type="button" class="mobile-menu-toggle" aria-expanded="false" aria-controls="main-nav-menu" aria-label="Toggle Navigation Menu">
+        ☰ Menu
+      </button>
+      <ul id="main-nav-menu" class="gov-nav-menu">
+        <li class="gov-nav-item"><a href="index.html" class="gov-nav-link" data-i18n="nav.home">Home</a></li>
+        <li class="gov-nav-item"><a href="farmer-registration.html" class="gov-nav-link" data-i18n="nav.farmers">Farmers</a></li>
+        <li class="gov-nav-item"><a href="procurement-centres.html" class="gov-nav-link" data-i18n="nav.centres">Procurement Centres</a></li>
+        <li class="gov-nav-item"><a href="slot-booking.html" class="gov-nav-link" data-i18n="nav.schedule">Schedule</a></li>
+        <li class="gov-nav-item"><a href="procurement-status.html" class="gov-nav-link" data-i18n="nav.procurementStatus">Procurement Status</a></li>
+        <li class="gov-nav-item"><a href="payment-status.html" class="gov-nav-link" data-i18n="nav.paymentStatus">Payment Status</a></li>
+        <li class="gov-nav-item"><a href="grievance.html" class="gov-nav-link" data-i18n="nav.grievance">Grievance</a></li>
+      </ul>
+      <div class="gov-nav-right-actions">
+        <a href="admin-login.html" class="btn btn-sm btn-outline-navy nav-login-btn" style="background:#ffffff; color:#0c2340; border-color:#ffffff;" data-i18n="nav.officialLogin">Official Login</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Breadcrumbs -->
+  <div class="breadcrumb-wrapper">
+    <div class="container">
+      <ul class="breadcrumbs">
+        <li><a href="index.html">Home</a></li>
+        <li class="current">Farmer Login</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main id="main-content" style="padding: 40px 0;">
+    <div class="container">
+      <div style="max-width: 580px; margin: 0 auto;">
+        
+        <!-- Official Disclaimer Alert -->
+        <div class="alert alert-info mb-2">
+          <strong>Notice for Farmers:</strong> Please ensure your mobile number is linked with your Aadhaar and farmer registration record to receive the One Time Password (OTP).
+        </div>
+
+        <!-- Login Card -->
+        <div class="card" style="box-shadow: var(--shadow-card); border-top: 4px solid var(--gov-navy-primary);">
+          <div class="card-header" style="background: var(--bg-alt);">
+            <h2 style="font-size: 1.25rem;">Farmer Portal Sign In</h2>
+          </div>
+          <div class="card-body">
+            
+            <!-- Quick Demo Credentials Filler -->
+            <div style="background: #f1f5f9; padding: 12px; border-radius: var(--radius-sm); border: 1px dashed #94a3b8; margin-bottom: 20px;">
+              <span style="font-size: 0.76rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">
+                Quick Demo Fill (Instant Testing):
+              </span>
+              <div style="display: flex; gap: 8px; margin-top: 8px; flex-wrap: wrap;">
+                <button type="button" class="btn btn-sm btn-secondary" onclick="fillDemoFarmer('FMR-AP-2026-7821')">
+                  Ramesh Kumar (Guntur)
+                </button>
+                <button type="button" class="btn btn-sm btn-secondary" onclick="fillDemoFarmer('FMR-AP-2026-4412')">
+                  Lakshmi Devi (Krishna)
+                </button>
+                <button type="button" class="btn btn-sm btn-secondary" onclick="fillDemoFarmer('FMR-AP-2026-9023')">
+                  Venkata Subba Rao (W. Godavari)
+                </button>
+              </div>
+            </div>
+
+            <!-- Login Tabs -->
+            <div class="auth-tabs-nav" role="tablist">
+              <button type="button" class="auth-tab active" data-tab="tab-reg" role="tab" aria-selected="true">
+                Registration No
+              </button>
+              <button type="button" class="auth-tab" data-tab="tab-mobile" role="tab" aria-selected="false">
+                Mobile Number
+              </button>
+              <button type="button" class="auth-tab" data-tab="tab-aadhaar" role="tab" aria-selected="false">
+                Aadhaar Number
+              </button>
+            </div>
+
+            <!-- Tab 1: Registration Number -->
+            <div id="tab-reg" class="auth-tab-content active" role="tabpanel">
+              <div class="form-group">
+                <label for="login-reg-number" class="form-label">Farmer Registration Number <span class="required">*</span></label>
+                <input type="text" id="login-reg-number" class="form-control" placeholder="e.g. FMR-AP-2026-7821" value="FMR-AP-2026-7821">
+                <span class="form-hint">Enter the permanent registration ID issued during portal registration.</span>
+              </div>
+            </div>
+
+            <!-- Tab 2: Mobile Number -->
+            <div id="tab-mobile" class="auth-tab-content" role="tabpanel">
+              <div class="form-group">
+                <label for="login-mobile-number" class="form-label">Registered 10-Digit Mobile Number <span class="required">*</span></label>
+                <input type="tel" id="login-mobile-number" class="form-control" placeholder="e.g. 9876543210" maxlength="10">
+                <span class="form-hint">Enter the mobile number linked to your farmer profile.</span>
+              </div>
+            </div>
+
+            <!-- Tab 3: Aadhaar Number -->
+            <div id="tab-aadhaar" class="auth-tab-content" role="tabpanel">
+              <div class="form-group">
+                <label for="login-aadhaar-number" class="form-label">12-Digit Aadhaar Number <span class="required">*</span></label>
+                <input type="password" id="login-aadhaar-number" class="form-control" placeholder="e.g. 123456788921" maxlength="12">
+                <span class="form-hint">Demo simulation: Aadhaar number is used strictly for local lookup and mock OTP.</span>
+              </div>
+            </div>
+
+            <!-- Captcha Section -->
+            <div class="form-group">
+              <label for="login-captcha-input" class="form-label">Security Verification (Captcha) <span class="required">*</span></label>
+              <div class="captcha-container">
+                <div id="captcha-code" class="captcha-display" data-code="8N4K2">8N4K2</div>
+                <button type="button" id="btn-refresh-captcha" class="btn btn-sm btn-secondary" title="Refresh Captcha">
+                  🔄 Refresh
+                </button>
+              </div>
+              <input type="text" id="login-captcha-input" class="form-control" placeholder="Enter characters shown above" style="text-transform: uppercase;">
+            </div>
+
+            <!-- Submit Button -->
+            <div class="mt-2">
+              <button type="button" class="btn btn-primary btn-block btn-lg" onclick="triggerLoginOtp()">
+                Generate OTP &amp; Proceed
+              </button>
+            </div>
+
+            <div class="text-center mt-3" style="font-size: 0.88rem; color: var(--text-muted); border-top: 1px solid var(--border-color); padding-top: 16px;">
+              Not registered yet? <a href="farmer-registration.html" style="font-weight: 700; color: var(--agri-green-dark);">Register as a New Farmer</a>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- OTP Verification Modal -->
+  <div id="otp-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="otp-modal-title">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 id="otp-modal-title">Enter Verification Code (OTP)</h3>
+        <button type="button" class="modal-close" onclick="closeModal('otp-modal')" aria-label="Close Modal">&times;</button>
+      </div>
+      <div class="modal-body text-center">
+        <p class="text-muted" style="margin-bottom: 8px;">
+          An automated 6-digit One Time Password has been dispatched to your linked mobile number ending in:
+        </p>
+        <strong id="otp-modal-mobile" style="font-size: 1.1rem; color: var(--gov-navy-primary);">XXXX-XX-8921</strong>
+        
+        <div class="alert alert-info mt-2" style="font-size: 0.82rem; margin-bottom: 0;">
+          <strong>Demo Sandbox OTP:</strong> Enter <strong>123456</strong> to verify successfully.
+        </div>
+
+        <div class="otp-grid">
+          <input type="text" class="otp-box" maxlength="1" autofocus value="1">
+          <input type="text" class="otp-box" maxlength="1" value="2">
+          <input type="text" class="otp-box" maxlength="1" value="3">
+          <input type="text" class="otp-box" maxlength="1" value="4">
+          <input type="text" class="otp-box" maxlength="1" value="5">
+          <input type="text" class="otp-box" maxlength="1" value="6">
+        </div>
+
+        <div style="font-size: 0.85rem; color: var(--text-muted);">
+          Time remaining: <strong id="otp-timer-count" style="color: #dc2626;">60s</strong>
+        </div>
+
+        <div class="mt-2">
+          <button type="button" id="btn-resend-otp" class="btn btn-sm btn-secondary" onclick="startOtpTimer()" disabled>
+            Resend OTP
+          </button>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" onclick="closeModal('otp-modal')">Cancel</button>
+        <button type="button" class="btn btn-success" onclick="verifyFarmerOtp()">Verify OTP &amp; Login</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Government Footer -->
+  <footer class="gov-footer">
+    <div class="container gov-footer-bottom">
+      <p style="margin: 0; font-size: 0.76rem;">
+        Website Content Managed by <strong>Department of Civil Supplies, Government of Andhra Pradesh</strong>.<br>
+        Designed, Developed and Hosted by <strong>National Informatics Centre (NIC)</strong>.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/language.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/auth.js"></script>
+  <script>
+    function triggerLoginOtp() {
+      const activeTab = document.querySelector(".auth-tab.active");
+      const tabId = activeTab ? activeTab.getAttribute("data-tab") : "tab-reg";
+      let identifierType = "reg";
+      if (tabId === "tab-mobile") identifierType = "mobile";
+      if (tabId === "tab-aadhaar") identifierType = "aadhaar";
+      handleFarmerOtpRequest(identifierType);
+    }
+  </script>
+</body>
+</html>

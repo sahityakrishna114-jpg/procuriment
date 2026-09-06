@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Online Paddy Procurement System - Department of Civil Supplies, Government of Andhra Pradesh. Direct MSP procurement, slot booking, and payment tracking for farmers.">
+  <title>Online Paddy Procurement System | Department of Civil Supplies</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/government.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <!-- Accessible Skip Link -->
+  <a href="#main-content" class="skip-to-content">Skip to Main Content</a>
+
+  <!-- Top Tricolor Stripe -->
+  <div class="gov-top-tricolor" aria-hidden="true"></div>
+
+  <!-- Government Top Admin Strip -->
+  <div class="gov-top-bar">
+    <div class="container gov-top-bar-content">
+      <div class="gov-entity-links">
+        <span class="gov-entity-link" data-i18n="gov.india">Government of India</span>
+        <span style="color: rgba(255,255,255,0.3);">|</span>
+        <span class="gov-entity-link" data-i18n="gov.state">Government of Andhra Pradesh</span>
+      </div>
+      <div class="gov-accessibility-controls">
+        <span style="color: #94a3b8; font-size: 0.76rem; margin-right: 2px;">Font Size:</span>
+        <button type="button" id="btn-font-small" class="a11y-btn" aria-label="Decrease Text Size">A-</button>
+        <button type="button" id="btn-font-normal" class="a11y-btn" aria-label="Reset Text Size">A</button>
+        <button type="button" id="btn-font-large" class="a11y-btn" aria-label="Increase Text Size">A+</button>
+        <button type="button" id="btn-contrast-toggle" class="contrast-toggle-btn" aria-label="Toggle High Contrast">Contrast</button>
+        <button type="button" id="btn-screen-reader" class="a11y-btn" aria-label="Screen Reader Access">Screen Reader</button>
+        <div class="lang-select-wrapper">
+          <label for="header-lang-select" class="sr-only" style="position: absolute; left: -9999px;">Language</label>
+          <select id="header-lang-select" class="lang-select" aria-label="Select Language">
+            <option value="en">English</option>
+            <option value="te">తెలుగు (Telugu)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Department Branding Header -->
+  <header class="gov-branding-header">
+    <div class="container gov-branding-content">
+      <a href="index.html" class="gov-branding-left">
+        <img src="assets/images/national-emblem.svg" alt="National Emblem of India" class="gov-emblem-img">
+        <div class="gov-title-group">
+          <span class="gov-state-title" data-i18n="gov.state">Government of Andhra Pradesh</span>
+          <span class="gov-dept-title" data-i18n="gov.dept">Department of Civil Supplies</span>
+          <span class="gov-portal-title" data-i18n="gov.portal">Online Paddy Procurement System</span>
+        </div>
+      </a>
+      <div class="gov-branding-right">
+        <div class="gov-helpline-box">
+          <div class="helpline-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+              <path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1.02 1.02 0 0 0-1.02.24l-2.2 2.2a15.045 15.045 0 0 1-6.59-6.59l2.2-2.21a.96.96 0 0 0 .25-1A11.36 11.36 0 0 1 8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1zM19 12h2a9 9 0 0 0-9-9v2c3.87 0 7 3.13 7 7zm-4 0h2a5 5 0 0 0-5-5v2c1.66 0 3 1.34 3 3z"/>
+            </svg>
+          </div>
+          <div class="helpline-text">
+            <span class="helpline-label" data-i18n="gov.helpline">Toll Free Helpline</span>
+            <a href="tel:1967" class="helpline-number">1967 / 1800-425-0082</a>
+          </div>
+        </div>
+        <img src="assets/images/state-logo.svg" alt="Civil Supplies Department Seal" class="gov-state-logo-img">
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Navigation Bar -->
+  <nav class="gov-nav-bar" aria-label="Main Navigation">
+    <div class="container gov-nav-container">
+      <button type="button" class="mobile-menu-toggle" aria-expanded="false" aria-controls="main-nav-menu" aria-label="Toggle Navigation Menu">
+        ☰ Menu
+      </button>
+      <ul id="main-nav-menu" class="gov-nav-menu">
+        <li class="gov-nav-item"><a href="index.html" class="gov-nav-link active" data-i18n="nav.home">Home</a></li>
+        <li class="gov-nav-item"><a href="farmer-registration.html" class="gov-nav-link" data-i18n="nav.farmers">Farmers</a></li>
+        <li class="gov-nav-item"><a href="procurement-centres.html" class="gov-nav-link" data-i18n="nav.centres">Procurement Centres</a></li>
+        <li class="gov-nav-item"><a href="slot-booking.html" class="gov-nav-link" data-i18n="nav.schedule">Schedule</a></li>
+        <li class="gov-nav-item"><a href="procurement-status.html" class="gov-nav-link" data-i18n="nav.procurementStatus">Procurement Status</a></li>
+        <li class="gov-nav-item"><a href="payment-status.html" class="gov-nav-link" data-i18n="nav.paymentStatus">Payment Status</a></li>
+        <li class="gov-nav-item"><a href="grievance.html" class="gov-nav-link" data-i18n="nav.grievance">Grievance</a></li>
+        <li class="gov-nav-item"><a href="schedule-status.html" class="gov-nav-link" data-i18n="nav.help">Help</a></li>
+      </ul>
+      <div class="gov-nav-right-actions">
+        <a href="farmer-login.html" class="btn btn-sm btn-secondary nav-login-btn" data-i18n="nav.farmerLogin">Farmer Login</a>
+        <a href="admin-login.html" class="btn btn-sm btn-outline-navy nav-login-btn" style="background:#ffffff; color:#0c2340; border-color:#ffffff;" data-i18n="nav.officialLogin">Official Login</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Notification / Announcement Marquee -->
+  <div class="gov-notice-bar" role="region" aria-label="Official Announcements">
+    <div class="container gov-notice-content">
+      <span class="notice-badge">Announcement</span>
+      <div class="notice-ticker">
+        <span class="notice-ticker-text">
+          Kharif Marketing Season (KMS) 2026-27: Minimum Support Price (MSP) for Paddy Grade 'A' fixed at ₹2,320 per quintal and Common Paddy at ₹2,300 per quintal. | Ensure moisture content is within 17% Fair Average Quality (FAQ) standards. | Direct Benefit Transfer (DBT) payments credited within 24-48 hours directly into Aadhaar-seeded bank accounts.
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content Area -->
+  <main id="main-content">
+    <!-- Hero Section -->
+    <section class="hero-section" style="background: linear-gradient(rgba(12,35,64,0.85), rgba(12,35,64,0.85)), #1b5e20; color: #ffffff; padding: 48px 0; border-bottom: 4px solid var(--agri-green-primary);">
+      <div class="container">
+        <div style="max-width: 820px;">
+          <span class="badge badge-warning" style="margin-bottom: 12px;">Kharif Procurement Season 2026</span>
+          <h1 style="color: #ffffff; font-size: 2.3rem; margin-bottom: 14px; letter-spacing: -0.5px;" data-i18n="hero.title">
+            Online Paddy Procurement System
+          </h1>
+          <p style="color: #e2e8f0; font-size: 1.12rem; margin-bottom: 24px; line-height: 1.6;" data-i18n="hero.subtitle">
+            Transparent, convenient and accessible paddy procurement services for farmers. Book your delivery slot at your nearest procurement centre and receive direct MSP payments in your bank account.
+          </p>
+          <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+            <a href="farmer-login.html" class="btn btn-lg btn-success" data-i18n="hero.btnLogin">
+              Farmer Login
+            </a>
+            <a href="farmer-registration.html" class="btn btn-lg btn-secondary" style="background: #ffffff; color: var(--gov-navy-dark); font-weight: 700;" data-i18n="hero.btnRegister">
+              Register as Farmer
+            </a>
+            <a href="procurement-centres.html" class="btn btn-lg btn-outline-navy" style="color: #ffffff; border-color: #ffffff;" data-i18n="hero.btnFindCentre">
+              Find Procurement Centre
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Public Procurement Counters / Statistics -->
+    <section style="background: #ffffff; padding: 30px 0; border-bottom: 1px solid var(--border-color);">
+      <div class="container">
+        <div class="grid-4" style="text-align: center;">
+          <div class="card" style="margin-bottom: 0; padding: 18px 10px; border-left: 4px solid var(--gov-navy-primary);">
+            <div style="font-size: 0.82rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;" data-i18n="stat.farmers">Registered Farmers</div>
+            <div style="font-size: 1.7rem; font-weight: 900; color: var(--gov-navy-dark); margin-top: 4px;">14,82,910</div>
+            <div style="font-size: 0.75rem; color: var(--agri-green-dark); font-weight: 600;">Active in 26 Districts</div>
+          </div>
+          <div class="card" style="margin-bottom: 0; padding: 18px 10px; border-left: 4px solid var(--agri-green-primary);">
+            <div style="font-size: 0.82rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;" data-i18n="stat.centres">Procurement Centres</div>
+            <div style="font-size: 1.7rem; font-weight: 900; color: var(--agri-green-dark); margin-top: 4px;">3,420</div>
+            <div style="font-size: 0.75rem; color: var(--text-muted); font-weight: 600;">PPC, PACS &amp; RBKs</div>
+          </div>
+          <div class="card" style="margin-bottom: 0; padding: 18px 10px; border-left: 4px solid #d97706;">
+            <div style="font-size: 0.82rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;" data-i18n="stat.procured">Paddy Procured</div>
+            <div style="font-size: 1.7rem; font-weight: 900; color: #b45309; margin-top: 4px;">48,92,450 MT</div>
+            <div style="font-size: 0.75rem; color: var(--text-muted); font-weight: 600;">Metric Tonnes Season Total</div>
+          </div>
+          <div class="card" style="margin-bottom: 0; padding: 18px 10px; border-left: 4px solid #2563eb;">
+            <div style="font-size: 0.82rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;" data-i18n="stat.paid">Amount Disbursed (DBT)</div>
+            <div style="font-size: 1.7rem; font-weight: 900; color: #1e40af; margin-top: 4px;">₹11,350.48 Cr</div>
+            <div style="font-size: 0.75rem; color: var(--agri-green-dark); font-weight: 600;">Direct to Farmer Bank A/C</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Important Services Grid -->
+    <section style="padding: 40px 0;">
+      <div class="container">
+        <div style="text-align: center; margin-bottom: 30px;">
+          <h2 style="font-size: 1.7rem; margin-bottom: 6px;">Important Online Services</h2>
+          <p class="text-muted" style="max-width: 600px; margin: 0 auto;">
+            Access essential citizen and farmer services directly through the digital procurement portal.
+          </p>
+        </div>
+
+        <div class="grid-4">
+          <!-- 1. Registration -->
+          <div class="card" style="border-top: 3px solid var(--gov-navy-primary);">
+            <div class="card-body">
+              <div style="font-size: 1.8rem; margin-bottom: 8px;">📝</div>
+              <h3 style="font-size: 1.1rem; margin-bottom: 6px;" data-i18n="service.registration">Farmer Registration</h3>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 16px;">
+                New farmers can register with Aadhaar, Krishak Bandhu/Farmer ID, and land parcel details.
+              </p>
+              <a href="farmer-registration.html" class="btn btn-sm btn-outline-navy btn-block">Apply for Registration</a>
+            </div>
+          </div>
+
+          <!-- 2. Centres -->
+          <div class="card" style="border-top: 3px solid var(--agri-green-primary);">
+            <div class="card-body">
+              <div style="font-size: 1.8rem; margin-bottom: 8px;">🏢</div>
+              <h3 style="font-size: 1.1rem; margin-bottom: 6px;" data-i18n="service.centres">Find Procurement Centre</h3>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 16px;">
+                Locate operational PPCs, PACS, and RBK centres with live daily slot availability and officer details.
+              </p>
+              <a href="procurement-centres.html" class="btn btn-sm btn-outline-green btn-block">Search Centres</a>
+            </div>
+          </div>
+
+          <!-- 3. Slot Booking -->
+          <div class="card" style="border-top: 3px solid #2563eb;">
+            <div class="card-body">
+              <div style="font-size: 1.8rem; margin-bottom: 8px;">📅</div>
+              <h3 style="font-size: 1.1rem; margin-bottom: 6px;" data-i18n="service.booking">Book Procurement Slot</h3>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 16px;">
+                Schedule convenient date and time to deliver harvested paddy without long queues.
+              </p>
+              <a href="slot-booking.html" class="btn btn-sm btn-primary btn-block">Book Token Slot</a>
+            </div>
+          </div>
+
+          <!-- 4. Schedule Status -->
+          <div class="card" style="border-top: 3px solid #d97706;">
+            <div class="card-body">
+              <div style="font-size: 1.8rem; margin-bottom: 8px;">🔍</div>
+              <h3 style="font-size: 1.1rem; margin-bottom: 6px;" data-i18n="service.schedule">Check Schedule Status</h3>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 16px;">
+                Verify token number, scheduled time, designated weighbridge, and cancellation options.
+              </p>
+              <a href="schedule-status.html" class="btn btn-sm btn-secondary btn-block">Check Token Status</a>
+            </div>
+          </div>
+
+          <!-- 5. Track Procurement -->
+          <div class="card" style="border-top: 3px solid var(--agri-green-dark);">
+            <div class="card-body">
+              <div style="font-size: 1.8rem; margin-bottom: 8px;">🚚</div>
+              <h3 style="font-size: 1.1rem; margin-bottom: 6px;" data-i18n="service.tracking">Track Procurement</h3>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 16px;">
+                Live 8-stage tracking from arrival, quality analysis (moisture %), weighment to godown acceptance.
+              </p>
+              <a href="procurement-status.html" class="btn btn-sm btn-outline-green btn-block">Track Lifecycle</a>
+            </div>
+          </div>
+
+          <!-- 6. Payment Status -->
+          <div class="card" style="border-top: 3px solid #059669;">
+            <div class="card-body">
+              <div style="font-size: 1.8rem; margin-bottom: 8px;">💳</div>
+              <h3 style="font-size: 1.1rem; margin-bottom: 6px;" data-i18n="service.payment">Check Payment Status</h3>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 16px;">
+                Check bank credit records, PFMS/e-Kuber transaction reference UTR, and gross/net amounts.
+              </p>
+              <a href="payment-status.html" class="btn btn-sm btn-outline-navy btn-block">View Bank Credits</a>
+            </div>
+          </div>
+
+          <!-- 7. Download Receipt -->
+          <div class="card" style="border-top: 3px solid var(--gov-navy-primary);">
+            <div class="card-body">
+              <div style="font-size: 1.8rem; margin-bottom: 8px;">📄</div>
+              <h3 style="font-size: 1.1rem; margin-bottom: 6px;" data-i18n="service.receipt">Download Receipt</h3>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 16px;">
+                Generate and reprint official purchase receipts and weighbridge slips with digital signature.
+              </p>
+              <a href="receipt.html" class="btn btn-sm btn-secondary btn-block">Print Receipt</a>
+            </div>
+          </div>
+
+          <!-- 8. Raise Grievance -->
+          <div class="card" style="border-top: 3px solid #dc2626;">
+            <div class="card-body">
+              <div style="font-size: 1.8rem; margin-bottom: 8px;">⚖️</div>
+              <h3 style="font-size: 1.1rem; margin-bottom: 6px;" data-i18n="service.grievance">Raise Grievance</h3>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 16px;">
+                Register complaints regarding weighment, quality testing, payment delay, or centre staff.
+              </p>
+              <a href="grievance.html" class="btn btn-sm btn-outline-navy btn-block" style="border-color: #dc2626; color: #dc2626;">File Grievance</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Find Nearest Procurement Centre Widget -->
+    <section style="background: #f1f5f9; padding: 40px 0; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+      <div class="container">
+        <div class="card" style="max-width: 1040px; margin: 0 auto; box-shadow: var(--shadow-card);">
+          <div class="card-header" style="background: var(--gov-navy-dark); color: #ffffff;">
+            <h3 style="color: #ffffff; display: flex; align-items: center; gap: 8px;">
+              <span>📍</span> Find Your Nearest Procurement Centre
+            </h3>
+          </div>
+          <div class="card-body">
+            <p class="text-muted mb-2">
+              Select your administrative location to inspect active procurement points, operational days, and available delivery quotas.
+            </p>
+            <form action="procurement-centres.html" method="GET">
+              <div class="grid-4">
+                <div class="form-group">
+                  <label for="home-search-district" class="form-label">District</label>
+                  <select id="home-search-district" name="district" class="form-control">
+                    <option value="">All Districts</option>
+                    <option value="Guntur">Guntur</option>
+                    <option value="Krishna">Krishna</option>
+                    <option value="West Godavari">West Godavari</option>
+                    <option value="East Godavari">East Godavari</option>
+                    <option value="Kurnool">Kurnool</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="home-search-mandal" class="form-label">Mandal / Block</label>
+                  <input type="text" id="home-search-mandal" name="mandal" class="form-control" placeholder="e.g. Tenali or Gudivada">
+                </div>
+                <div class="form-group">
+                  <label for="home-search-village" class="form-label">Village / Gram Panchayat</label>
+                  <input type="text" id="home-search-village" name="village" class="form-control" placeholder="e.g. Angalakuduru">
+                </div>
+                <div class="form-group">
+                  <label for="home-search-type" class="form-label">Centre Type</label>
+                  <select id="home-search-type" name="type" class="form-control">
+                    <option value="">All Types</option>
+                    <option value="PPC">Paddy Procurement Centre (PPC)</option>
+                    <option value="PACS">PACS Society Centre</option>
+                    <option value="RBK">Rythu Bharosa Kendra (RBK)</option>
+                    <option value="DCMS">DCMS Godown</option>
+                  </select>
+                </div>
+              </div>
+              <div class="text-right mt-1">
+                <button type="submit" class="btn btn-primary" style="padding: 10px 24px;">
+                  Search Centres
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Important Guidelines & FAQs Section -->
+    <section style="padding: 40px 0;">
+      <div class="container">
+        <div class="grid-2">
+          <!-- Left Column: Important Notices -->
+          <div class="card">
+            <div class="card-header">
+              <h3>Important Guidelines &amp; Quality Norms (FAQ)</h3>
+            </div>
+            <div class="card-body">
+              <ul style="padding-left: 20px; line-height: 1.8; font-size: 0.9rem; color: var(--text-dark);">
+                <li><strong>Moisture Content:</strong> Paddy must have moisture level <strong>&le; 17.0%</strong>. Digital moisture meter testing is mandatory at gate entry.</li>
+                <li><strong>Foreign Matter:</strong> Organic foreign matter must not exceed <strong>1.0%</strong> and inorganic foreign matter &le; <strong>1.0%</strong>.</li>
+                <li><strong>Damaged / Discoloured Grains:</strong> Maximum permissible limit is <strong>5.0%</strong>.</li>
+                <li><strong>Mandatory Documents at PPC:</strong> Farmer must bring Booking Token Printout/SMS, Original Aadhaar Card, and Bank Passbook copy.</li>
+                <li><strong>Electronic Weighment:</strong> Digital weighbridge slip with Gross, Tare, and Net Weight will be handed over to farmer on the spot.</li>
+              </ul>
+            </div>
+            <div class="card-footer">
+              <a href="https://civilsupplies.ap.gov.in" target="_blank" rel="noopener" class="btn btn-sm btn-secondary">
+                View Full Quality Specifications (PDF)
+              </a>
+            </div>
+          </div>
+
+          <!-- Right Column: Farmer Helpline & Support -->
+          <div class="card">
+            <div class="card-header">
+              <h3>Farmer Support &amp; Assistance Desk</h3>
+            </div>
+            <div class="card-body">
+              <div class="alert alert-info" style="margin-bottom: 14px;">
+                <strong>Toll-Free Farmer Redressal Helpline:</strong><br>
+                Dial <strong>1967</strong> or <strong>1800-425-0082</strong> (Available 08:00 AM to 08:00 PM, Monday to Saturday).
+              </div>
+              <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 12px;">
+                Farmers facing issues with slot availability, token generation, or weighbridge calibration can contact their Village Agriculture Assistant (VAA) at the local Rythu Bharosa Kendra or the District Civil Supplies Officer.
+              </p>
+              <div class="grid-2 mt-2">
+                <div>
+                  <span class="form-label">Nodal Agency</span>
+                  <strong style="font-size: 0.88rem;">AP State Civil Supplies Corporation</strong>
+                </div>
+                <div>
+                  <span class="form-label">Payment Gateway</span>
+                  <strong style="font-size: 0.88rem;">PFMS / RBI e-Kuber DBT</strong>
+                </div>
+              </div>
+            </div>
+            <div class="card-footer">
+              <a href="grievance.html" class="btn btn-sm btn-outline-navy">
+                Register Grievance Online
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Official Government Footer -->
+  <footer class="gov-footer">
+    <div class="container gov-footer-main">
+      <div class="gov-footer-grid">
+        <!-- Col 1: Department Info -->
+        <div class="footer-col">
+          <h4>Department of Civil Supplies</h4>
+          <p style="font-size: 0.84rem; color: #cbd5e1; line-height: 1.6;">
+            The Online Paddy Procurement System provides direct Minimum Support Price (MSP) benefits to registered paddy farmers through digitized weighment, online token scheduling, and seamless Direct Benefit Transfer.
+          </p>
+          <p style="font-size: 0.82rem; color: #94a3b8; margin-top: 10px;">
+            Headquarters: Civil Supplies Bhavan, Collectorate Complex, Vijayawada, Andhra Pradesh - 520002.
+          </p>
+        </div>
+
+        <!-- Col 2: Citizen Services -->
+        <div class="footer-col">
+          <h4>Citizen Services</h4>
+          <ul class="footer-links">
+            <li><a href="farmer-registration.html">Farmer Registration</a></li>
+            <li><a href="procurement-centres.html">Procurement Centres</a></li>
+            <li><a href="slot-booking.html">Book Delivery Slot</a></li>
+            <li><a href="schedule-status.html">Schedule Status</a></li>
+            <li><a href="procurement-status.html">Track Procurement</a></li>
+            <li><a href="payment-status.html">Payment Information</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Related Portals -->
+        <div class="footer-col">
+          <h4>Related Portals</h4>
+          <ul class="footer-links">
+            <li><a href="https://enam.gov.in" target="_blank" rel="noopener">National Agriculture Market (e-NAM)</a></li>
+            <li><a href="https://pmkisan.gov.in" target="_blank" rel="noopener">PM-KISAN Portal</a></li>
+            <li><a href="https://fci.gov.in" target="_blank" rel="noopener">Food Corporation of India (FCI)</a></li>
+            <li><a href="https://apagrisnet.gov.in" target="_blank" rel="noopener">Department of Agriculture, AP</a></li>
+            <li><a href="https://epaddy.wb.gov.in" target="_blank" rel="noopener">West Bengal e-Paddy Reference</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Grievance & Helpdesk -->
+        <div class="footer-col">
+          <h4>Help &amp; Grievances</h4>
+          <p style="font-size: 0.84rem; color: #cbd5e1;">
+            Toll-Free Control Room: <strong>1967</strong><br>
+            Alternate Helpline: <strong>1800-425-0082</strong><br>
+            Email: <span style="color:#ffffff;">support-epaddy@ap.gov.in</span>
+          </p>
+          <div style="margin-top: 12px;">
+            <a href="grievance.html" class="btn btn-sm btn-outline-green" style="background: rgba(46,125,50,0.2); color: #86efac; border-color: #86efac;">
+              Lodge a Complaint
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container gov-footer-bottom">
+      <div class="gov-footer-bottom-links">
+        <a href="#!">Website Policies</a>
+        <span>|</span>
+        <a href="#!">Privacy Policy</a>
+        <span>|</span>
+        <a href="#!">Terms of Use</a>
+        <span>|</span>
+        <a href="#!">Accessibility Statement</a>
+        <span>|</span>
+        <a href="#!">Sitemap</a>
+        <span>|</span>
+        <a href="#!">Help</a>
+      </div>
+      <p style="margin: 0; font-size: 0.76rem;">
+        Website Content Managed by <strong>Department of Civil Supplies, Government of Andhra Pradesh</strong>.<br>
+        Designed, Developed and Hosted by <strong>National Informatics Centre (NIC)</strong> / State e-Governance Mission.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/language.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

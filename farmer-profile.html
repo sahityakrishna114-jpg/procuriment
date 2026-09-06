@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Farmer Profile - Online Paddy Procurement System, Department of Civil Supplies. View and update personal particulars, registered land parcels, and bank details.">
+  <title>Farmer Profile | Online Paddy Procurement System</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/government.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <!-- Accessible Skip Link -->
+  <a href="#main-content" class="skip-to-content">Skip to Main Content</a>
+
+  <!-- Top Tricolor Stripe -->
+  <div class="gov-top-tricolor" aria-hidden="true"></div>
+
+  <!-- Government Top Admin Strip -->
+  <div class="gov-top-bar">
+    <div class="container gov-top-bar-content">
+      <div class="gov-entity-links">
+        <span class="gov-entity-link" data-i18n="gov.india">Government of India</span>
+        <span style="color: rgba(255,255,255,0.3);">|</span>
+        <span class="gov-entity-link" data-i18n="gov.state">Government of Andhra Pradesh</span>
+      </div>
+      <div class="gov-accessibility-controls">
+        <button type="button" id="btn-font-small" class="a11y-btn" aria-label="Decrease Text Size">A-</button>
+        <button type="button" id="btn-font-normal" class="a11y-btn" aria-label="Reset Text Size">A</button>
+        <button type="button" id="btn-font-large" class="a11y-btn" aria-label="Increase Text Size">A+</button>
+        <button type="button" id="btn-contrast-toggle" class="contrast-toggle-btn" aria-label="Toggle High Contrast">Contrast</button>
+        <div class="lang-select-wrapper">
+          <label for="header-lang-select" class="sr-only" style="position: absolute; left: -9999px;">Language</label>
+          <select id="header-lang-select" class="lang-select" aria-label="Select Language">
+            <option value="en">English</option>
+            <option value="te">తెలుగు (Telugu)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Department Branding Header -->
+  <header class="gov-branding-header">
+    <div class="container gov-branding-content">
+      <a href="index.html" class="gov-branding-left">
+        <img src="assets/images/national-emblem.svg" alt="National Emblem of India" class="gov-emblem-img">
+        <div class="gov-title-group">
+          <span class="gov-state-title" data-i18n="gov.state">Government of Andhra Pradesh</span>
+          <span class="gov-dept-title" data-i18n="gov.dept">Department of Civil Supplies</span>
+          <span class="gov-portal-title" data-i18n="gov.portal">Online Paddy Procurement System</span>
+        </div>
+      </a>
+      <div class="gov-branding-right">
+        <img src="assets/images/state-logo.svg" alt="Civil Supplies Seal" class="gov-state-logo-img">
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Navigation Bar -->
+  <nav class="gov-nav-bar" aria-label="Main Navigation">
+    <div class="container gov-nav-container">
+      <button type="button" class="mobile-menu-toggle" aria-expanded="false" aria-controls="main-nav-menu" aria-label="Toggle Navigation Menu">
+        ☰ Menu
+      </button>
+      <ul id="main-nav-menu" class="gov-nav-menu">
+        <li class="gov-nav-item"><a href="farmer-dashboard.html" class="gov-nav-link">Dashboard</a></li>
+        <li class="gov-nav-item"><a href="farmer-profile.html" class="gov-nav-link active">My Profile</a></li>
+        <li class="gov-nav-item"><a href="procurement-centres.html" class="gov-nav-link" data-i18n="nav.centres">Procurement Centres</a></li>
+        <li class="gov-nav-item"><a href="slot-booking.html" class="gov-nav-link" data-i18n="nav.schedule">Schedule</a></li>
+        <li class="gov-nav-item"><a href="procurement-status.html" class="gov-nav-link" data-i18n="nav.procurementStatus">Procurement Status</a></li>
+        <li class="gov-nav-item"><a href="payment-status.html" class="gov-nav-link" data-i18n="nav.paymentStatus">Payment Status</a></li>
+        <li class="gov-nav-item"><a href="grievance.html" class="gov-nav-link" data-i18n="nav.grievance">Grievance</a></li>
+      </ul>
+      <div class="gov-nav-right-actions">
+        <a href="farmer-dashboard.html" class="btn btn-sm btn-secondary">Back to Dashboard</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Breadcrumbs -->
+  <div class="breadcrumb-wrapper">
+    <div class="container">
+      <ul class="breadcrumbs">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="farmer-dashboard.html">Farmer</a></li>
+        <li class="current">Farmer Profile</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main id="main-content" style="padding: 30px 0;">
+    <div class="container">
+      
+      <!-- Profile Header Action Bar -->
+      <div class="card" style="margin-bottom: 20px;">
+        <div class="card-body d-flex justify-between align-center flex-wrap gap-2">
+          <div>
+            <h2 id="prof-name-header" style="margin: 0; font-size: 1.4rem;">Ramesh Kumar</h2>
+            <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">
+              Registration ID: <strong id="prof-id-header" style="font-family: var(--font-mono); color: var(--gov-navy-primary);">FMR-AP-2026-7821</strong> | e-KYC Status: <span class="badge badge-success">Verified</span>
+            </div>
+          </div>
+          <div>
+            <button type="button" id="btn-edit-profile" class="btn btn-secondary" onclick="toggleEditProfile()">
+              ✏️ Edit Profile
+            </button>
+            <button type="button" id="btn-save-profile" class="btn btn-success" style="display: none;" onclick="saveProfileChanges()">
+              💾 Save Profile Updates
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 1: Personal Particulars -->
+      <div class="card">
+        <div class="card-header">
+          <h3>1. Personal Particulars</h3>
+        </div>
+        <div class="card-body">
+          <div class="grid-3">
+            <div class="form-group">
+              <label for="prof-farmer-name" class="form-label">Full Name</label>
+              <input type="text" id="prof-farmer-name" class="form-control" readonly>
+            </div>
+            <div class="form-group">
+              <label for="prof-father-name" class="form-label">Father / Spouse Name</label>
+              <input type="text" id="prof-father-name" class="form-control" readonly>
+            </div>
+            <div class="form-group">
+              <label for="prof-aadhaar" class="form-label">Aadhaar (Masked)</label>
+              <input type="text" id="prof-aadhaar" class="form-control" readonly>
+            </div>
+            <div class="form-group">
+              <label for="prof-mobile" class="form-label">Registered Mobile</label>
+              <input type="tel" id="prof-mobile" class="form-control" readonly>
+            </div>
+            <div class="form-group">
+              <label for="prof-gender" class="form-label">Gender</label>
+              <input type="text" id="prof-gender" class="form-control" readonly>
+            </div>
+            <div class="form-group">
+              <label for="prof-age" class="form-label">Age</label>
+              <input type="text" id="prof-age" class="form-control" readonly>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 2: Address Particulars -->
+      <div class="card">
+        <div class="card-header">
+          <h3>2. Residential Address</h3>
+        </div>
+        <div class="card-body">
+          <div class="grid-3">
+            <div class="form-group">
+              <label for="prof-district" class="form-label">District</label>
+              <input type="text" id="prof-district" class="form-control" readonly>
+            </div>
+            <div class="form-group">
+              <label for="prof-mandal" class="form-label">Mandal / Block</label>
+              <input type="text" id="prof-mandal" class="form-control" readonly>
+            </div>
+            <div class="form-group">
+              <label for="prof-panchayat" class="form-label">Gram Panchayat</label>
+              <input type="text" id="prof-panchayat" class="form-control" readonly>
+            </div>
+            <div class="form-group">
+              <label for="prof-village" class="form-label">Village / Habitation</label>
+              <input type="text" id="prof-village" class="form-control" readonly>
+            </div>
+            <div class="form-group">
+              <label for="prof-pincode" class="form-label">PIN Code</label>
+              <input type="text" id="prof-pincode" class="form-control" readonly>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 3: Land Holding Records -->
+      <div class="card">
+        <div class="card-header">
+          <h3>3. Registered Cultivated Land Records</h3>
+        </div>
+        <div class="card-body" style="padding: 0;">
+          <div class="table-responsive" style="margin-bottom: 0; border: none;">
+            <table class="gov-table" aria-label="Land Parcels Table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>District</th>
+                  <th>Village / Mouza</th>
+                  <th>Survey / Khatian</th>
+                  <th>Dag No</th>
+                  <th>Cultivated Area</th>
+                  <th>Ownership Type</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="prof-land-tbody">
+                <!-- Injected via profile script -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 4: Bank & DBT Details -->
+      <div class="card">
+        <div class="card-header">
+          <h3>4. Bank Particulars for Direct Benefit Transfer</h3>
+        </div>
+        <div class="card-body">
+          <div class="grid-3">
+            <div class="form-group">
+              <label for="prof-bank-name" class="form-label">Bank Name</label>
+              <input type="text" id="prof-bank-name" class="form-control" readonly>
+            </div>
+            <div class="form-group">
+              <label for="prof-branch" class="form-label">Branch</label>
+              <input type="text" id="prof-branch" class="form-control" readonly>
+            </div>
+            <div class="form-group">
+              <label for="prof-ifsc" class="form-label">IFSC Code</label>
+              <input type="text" id="prof-ifsc" class="form-control" readonly>
+            </div>
+            <div class="form-group">
+              <label for="prof-account-no" class="form-label">Account Number</label>
+              <input type="text" id="prof-account-no" class="form-control" readonly>
+            </div>
+            <div class="form-group">
+              <label for="prof-account-type" class="form-label">Account Type</label>
+              <input type="text" id="prof-account-type" class="form-control" readonly>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Government Footer -->
+  <footer class="gov-footer">
+    <div class="container gov-footer-bottom">
+      <p style="margin: 0; font-size: 0.76rem;">
+        Website Content Managed by <strong>Department of Civil Supplies, Government of Andhra Pradesh</strong>.<br>
+        Designed, Developed and Hosted by <strong>National Informatics Centre (NIC)</strong>.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/language.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    let currentProfile = null;
+    let isEditing = false;
+
+    function loadProfile() {
+      const farmers = JSON.parse(localStorage.getItem("epaddy_farmers") || "[]");
+      const currentUser = JSON.parse(localStorage.getItem("epaddy_current_user") || "null");
+
+      if (currentUser && currentUser.role === "Farmer") {
+        currentProfile = farmers.find((f) => f.id === currentUser.id) || farmers[0];
+      } else if (farmers.length > 0) {
+        currentProfile = farmers[0];
+      }
+
+      if (!currentProfile) return;
+
+      document.getElementById("prof-name-header").textContent = currentProfile.name;
+      document.getElementById("prof-id-header").textContent = currentProfile.id;
+
+      // Fill personal fields
+      document.getElementById("prof-farmer-name").value = currentProfile.name || "";
+      document.getElementById("prof-father-name").value = currentProfile.fatherName || "";
+      document.getElementById("prof-aadhaar").value = currentProfile.aadhaarMasked || "XXXX-XXXX-8921";
+      document.getElementById("prof-mobile").value = currentProfile.mobile || "";
+      document.getElementById("prof-gender").value = currentProfile.gender || "Male";
+      document.getElementById("prof-age").value = currentProfile.age || "46";
+
+      // Fill address fields
+      document.getElementById("prof-district").value = currentProfile.district || "Guntur";
+      document.getElementById("prof-mandal").value = currentProfile.mandal || "Tenali";
+      document.getElementById("prof-panchayat").value = currentProfile.panchayat || "Angalakuduru";
+      document.getElementById("prof-village").value = currentProfile.village || "Angalakuduru";
+      document.getElementById("prof-pincode").value = currentProfile.pincode || "522211";
+
+      // Fill bank fields
+      if (currentProfile.bank) {
+        document.getElementById("prof-bank-name").value = currentProfile.bank.bankName || "";
+        document.getElementById("prof-branch").value = currentProfile.bank.branch || "";
+        document.getElementById("prof-ifsc").value = currentProfile.bank.ifsc || "";
+        document.getElementById("prof-account-no").value = currentProfile.bank.accountNumberMasked || "";
+        document.getElementById("prof-account-type").value = currentProfile.bank.accountType || "Savings";
+      }
+
+      // Render land parcels
+      const landTbody = document.getElementById("prof-land-tbody");
+      if (landTbody && currentProfile.lands) {
+        landTbody.innerHTML = "";
+        currentProfile.lands.forEach((l, idx) => {
+          const tr = document.createElement("tr");
+          tr.innerHTML = `
+            <td>${idx + 1}</td>
+            <td><strong>${l.district}</strong></td>
+            <td>${l.village}</td>
+            <td>${l.surveyNo}</td>
+            <td>${l.dagNo}</td>
+            <td>${l.areaAcres} Acres</td>
+            <td><span class="badge badge-info">${l.ownership}</span></td>
+            <td><span class="badge badge-success">Verified</span></td>
+          `;
+          landTbody.appendChild(tr);
+        });
+      }
+    }
+
+    function toggleEditProfile() {
+      isEditing = !isEditing;
+      const editableFields = ["prof-father-name", "prof-mobile", "prof-age", "prof-panchayat", "prof-village", "prof-pincode", "prof-branch"];
+      
+      editableFields.forEach((id) => {
+        const input = document.getElementById(id);
+        if (input) {
+          if (isEditing) {
+            input.removeAttribute("readonly");
+            input.style.backgroundColor = "#ffffff";
+            input.style.borderColor = "var(--gov-navy-primary)";
+          } else {
+            input.setAttribute("readonly", "true");
+            input.style.backgroundColor = "";
+            input.style.borderColor = "";
+          }
+        }
+      });
+
+      const editBtn = document.getElementById("btn-edit-profile");
+      const saveBtn = document.getElementById("btn-save-profile");
+
+      if (isEditing) {
+        editBtn.style.display = "none";
+        saveBtn.style.display = "inline-flex";
+        showToast("Profile fields unlocked for editing.", "info");
+      } else {
+        editBtn.style.display = "inline-flex";
+        saveBtn.style.display = "none";
+      }
+    }
+
+    function saveProfileChanges() {
+      if (!currentProfile) return;
+
+      currentProfile.fatherName = document.getElementById("prof-father-name")?.value.trim() || currentProfile.fatherName;
+      currentProfile.mobile = document.getElementById("prof-mobile")?.value.trim() || currentProfile.mobile;
+      currentProfile.age = parseInt(document.getElementById("prof-age")?.value, 10) || currentProfile.age;
+      currentProfile.panchayat = document.getElementById("prof-panchayat")?.value.trim() || currentProfile.panchayat;
+      currentProfile.village = document.getElementById("prof-village")?.value.trim() || currentProfile.village;
+      currentProfile.pincode = document.getElementById("prof-pincode")?.value.trim() || currentProfile.pincode;
+
+      if (currentProfile.bank) {
+        currentProfile.bank.branch = document.getElementById("prof-branch")?.value.trim() || currentProfile.bank.branch;
+      }
+
+      // Save to localStorage
+      const farmers = JSON.parse(localStorage.getItem("epaddy_farmers") || "[]");
+      const idx = farmers.findIndex((f) => f.id === currentProfile.id);
+      if (idx !== -1) {
+        farmers[idx] = currentProfile;
+        localStorage.setItem("epaddy_farmers", JSON.stringify(farmers));
+      }
+
+      toggleEditProfile();
+      showToast("Profile information updated successfully!", "success");
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      loadProfile();
+    });
+  </script>
+</body>
+</html>

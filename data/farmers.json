@@ -1,0 +1,166 @@
+[
+  {
+    "id": "FMR-AP-2026-7821",
+    "name": "Ramesh Kumar",
+    "fatherName": "Venkata Narayana",
+    "aadhaarMasked": "XXXX-XXXX-8921",
+    "aadhaar": "123456788921",
+    "mobile": "9876543210",
+    "gender": "Male",
+    "age": 46,
+    "krishakBandhuId": "KB-2026-90412",
+    "voterId": "AP/08/042/189201",
+    "district": "Guntur",
+    "mandal": "Tenali",
+    "panchayat": "Angalakuduru",
+    "village": "Angalakuduru",
+    "pincode": "522211",
+    "status": "Verified",
+    "registrationDate": "2026-08-12",
+    "lands": [
+      {
+        "id": "LND-01",
+        "district": "Guntur",
+        "village": "Angalakuduru",
+        "surveyNo": "142/2A",
+        "dagNo": "45",
+        "areaAcres": 3.5,
+        "ownership": "Self Owned",
+        "verified": true
+      },
+      {
+        "id": "LND-02",
+        "district": "Guntur",
+        "village": "Angalakuduru",
+        "surveyNo": "143/1B",
+        "dagNo": "48",
+        "areaAcres": 2.0,
+        "ownership": "Tenant / Lease",
+        "verified": true
+      }
+    ],
+    "preferredCentreId": "PPC-GNT-001",
+    "bank": {
+      "bankName": "State Bank of India",
+      "branch": "Tenali Main Branch",
+      "ifsc": "SBIN0000928",
+      "accountNumberMasked": "XXXXXXXX4819",
+      "accountNumber": "309812454819",
+      "accountType": "Savings"
+    },
+    "procurementSummary": {
+      "scheduledQuantity": 45,
+      "procuredQuantity": 30,
+      "paymentDue": 34800,
+      "paymentReceived": 69600
+    },
+    "activeAppointment": {
+      "tokenNumber": "PPC-2026-1042",
+      "centreId": "PPC-GNT-001",
+      "centreName": "Tenali Agricultural Market Yard PPC",
+      "centreAddress": "Market Yard Road, Near Old Bus Stand, Tenali, Guntur - 522201",
+      "date": "2026-10-15",
+      "timeSlot": "10:00 AM - 11:00 AM",
+      "quantity": 25,
+      "variety": "Paddy Grade A",
+      "status": "Scheduled"
+    },
+    "currentStage": 4
+  },
+  {
+    "id": "FMR-AP-2026-4412",
+    "name": "Lakshmi Devi",
+    "fatherName": "Chinnaiah",
+    "aadhaarMasked": "XXXX-XXXX-4512",
+    "aadhaar": "987654324512",
+    "mobile": "9848022334",
+    "gender": "Female",
+    "age": 42,
+    "krishakBandhuId": "KB-2026-67319",
+    "voterId": "AP/09/051/342110",
+    "district": "Krishna",
+    "mandal": "Gudivada",
+    "panchayat": "Valivarthipadu",
+    "village": "Valivarthipadu",
+    "pincode": "521301",
+    "status": "Verified",
+    "registrationDate": "2026-08-20",
+    "lands": [
+      {
+        "id": "LND-03",
+        "district": "Krishna",
+        "village": "Valivarthipadu",
+        "surveyNo": "88/3",
+        "dagNo": "19",
+        "areaAcres": 4.0,
+        "ownership": "Self Owned",
+        "verified": true
+      }
+    ],
+    "preferredCentreId": "PPC-KRI-003",
+    "bank": {
+      "bankName": "Andhra Pragathi Grameena Bank",
+      "branch": "Gudivada",
+      "ifsc": "APGB0001045",
+      "accountNumberMasked": "XXXXXXXX7723",
+      "accountNumber": "119823457723",
+      "accountType": "Savings"
+    },
+    "procurementSummary": {
+      "scheduledQuantity": 40,
+      "procuredQuantity": 40,
+      "paymentDue": 0,
+      "paymentReceived": 92800
+    },
+    "activeAppointment": null,
+    "currentStage": 7
+  },
+  {
+    "id": "FMR-AP-2026-9023",
+    "name": "Venkata Subba Rao",
+    "fatherName": "Appa Rao",
+    "aadhaarMasked": "XXXX-XXXX-6619",
+    "aadhaar": "543210986619",
+    "mobile": "9440188992",
+    "gender": "Male",
+    "age": 53,
+    "krishakBandhuId": "KB-2026-88124",
+    "voterId": "AP/04/022/981244",
+    "district": "West Godavari",
+    "mandal": "Bhimavaram",
+    "panchayat": "Rayalam",
+    "village": "Rayalam",
+    "pincode": "534208",
+    "status": "Verified",
+    "registrationDate": "2026-08-25",
+    "lands": [
+      {
+        "id": "LND-04",
+        "district": "West Godavari",
+        "village": "Rayalam",
+        "surveyNo": "205/4C",
+        "dagNo": "72",
+        "areaAcres": 5.5,
+        "ownership": "Self Owned",
+        "verified": true
+      }
+    ],
+    "preferredCentreId": "PPC-WG-002",
+    "bank": {
+      "bankName": "Union Bank of India",
+      "branch": "Bhimavaram Bazar",
+      "ifsc": "UBIN0532981",
+      "accountNumberMasked": "XXXXXXXX9012",
+      "accountNumber": "520101009012",
+      "accountType": "Savings"
+    },
+    "procurementSummary": {
+      "scheduledQuantity": 50,
+      "procuredQuantity": 50,
+      "paymentDue": 0,
+      "paymentReceived": 116000
+    },
+    "activeAppointment": null,
+    "currentStage": 7
+  }
+]

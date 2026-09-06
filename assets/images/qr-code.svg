@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" aria-label="Official Verification QR Code">
+  <rect width="100" height="100" fill="#ffffff"/>
+  <!-- Top Left Finder Pattern -->
+  <rect x="10" y="10" width="24" height="24" fill="#0c2340"/>
+  <rect x="14" y="14" width="16" height="16" fill="#ffffff"/>
+  <rect x="18" y="18" width="8" height="8" fill="#0c2340"/>
+  
+  <!-- Top Right Finder Pattern -->
+  <rect x="66" y="10" width="24" height="24" fill="#0c2340"/>
+  <rect x="70" y="14" width="16" height="16" fill="#ffffff"/>
+  <rect x="74" y="18" width="8" height="8" fill="#0c2340"/>
+  
+  <!-- Bottom Left Finder Pattern -->
+  <rect x="10" y="66" width="24" height="24" fill="#0c2340"/>
+  <rect x="14" y="70" width="16" height="16" fill="#ffffff"/>
+  <rect x="18" y="74" width="8" height="8" fill="#0c2340"/>
+  
+  <!-- Timing patterns -->
+  <line x1="14" y1="42" x2="86" y2="42" stroke="#0c2340" stroke-width="2" stroke-dasharray="2,2"/>
+  <line x1="42" y1="14" x2="42" y2="86" stroke="#0c2340" stroke-width="2" stroke-dasharray="2,2"/>
+  
+  <!-- Random Data Matrix Modules -->
+  <rect x="38" y="12" width="4" height="4" fill="#0c2340"/>
+  <rect x="46" y="12" width="4" height="4" fill="#0c2340"/>
+  <rect x="54" y="16" width="4" height="4" fill="#0c2340"/>
+  <rect x="46" y="24" width="4" height="4" fill="#0c2340"/>
+  <rect x="58" y="28" width="4" height="4" fill="#0c2340"/>
+  
+  <rect x="12" y="38" width="4" height="4" fill="#0c2340"/>
+  <rect x="20" y="48" width="4" height="4" fill="#0c2340"/>
+  <rect x="28" y="48" width="4" height="4" fill="#0c2340"/>
+  <rect x="32" y="56" width="4" height="4" fill="#0c2340"/>
+  
+  <!-- Center block -->
+  <rect x="48" y="48" width="12" height="12" fill="#0c2340"/>
+  <rect x="52" y="52" width="4" height="4" fill="#ffffff"/>
+  
+  <rect x="68" y="38" width="4" height="4" fill="#0c2340"/>
+  <rect x="76" y="46" width="4" height="4" fill="#0c2340"/>
+  <rect x="84" y="52" width="4" height="4" fill="#0c2340"/>
+  <rect x="64" y="58" width="4" height="4" fill="#0c2340"/>
+  
+  <rect x="42" y="68" width="4" height="4" fill="#0c2340"/>
+  <rect x="50" y="74" width="4" height="4" fill="#0c2340"/>
+  <rect x="58" y="82" width="4" height="4" fill="#0c2340"/>
+  <rect x="68" y="72" width="4" height="4" fill="#0c2340"/>
+  <rect x="76" y="80" width="4" height="4" fill="#0c2340"/>
+  <rect x="84" y="68" width="4" height="4" fill="#0c2340"/>
+</svg>

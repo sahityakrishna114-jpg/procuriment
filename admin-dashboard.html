@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Departmental Admin Dashboard - Department of Civil Supplies, Government of Andhra Pradesh. Real-time monitoring of procurement centres, weighment schedules, and DBT clearance.">
+  <title>Admin Dashboard | Department of Civil Supplies</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/government.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <style>
+    .admin-tabs-nav {
+      display: flex;
+      border-bottom: 2px solid var(--border-color);
+      margin-bottom: 20px;
+      overflow-x: auto;
+    }
+    .admin-tab {
+      padding: 10px 18px;
+      background: transparent;
+      border: none;
+      border-bottom: 3px solid transparent;
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.15s ease;
+    }
+    .admin-tab.active {
+      color: var(--gov-navy-primary);
+      border-bottom-color: var(--gov-navy-primary);
+      background-color: var(--bg-alt);
+    }
+    .admin-panel {
+      display: none;
+    }
+    .admin-panel.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <!-- Accessible Skip Link -->
+  <a href="#main-content" class="skip-to-content">Skip to Main Content</a>
+
+  <!-- Top Tricolor Stripe -->
+  <div class="gov-top-tricolor" aria-hidden="true"></div>
+
+  <!-- Government Top Admin Strip -->
+  <div class="gov-top-bar">
+    <div class="container gov-top-bar-content">
+      <div class="gov-entity-links">
+        <span class="gov-entity-link" data-i18n="gov.india">Government of India</span>
+        <span style="color: rgba(255,255,255,0.3);">|</span>
+        <span class="gov-entity-link" data-i18n="gov.state">Government of Andhra Pradesh</span>
+      </div>
+      <div class="gov-accessibility-controls">
+        <button type="button" id="btn-font-small" class="a11y-btn" aria-label="Decrease Text Size">A-</button>
+        <button type="button" id="btn-font-normal" class="a11y-btn" aria-label="Reset Text Size">A</button>
+        <button type="button" id="btn-font-large" class="a11y-btn" aria-label="Increase Text Size">A+</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Department Branding Header -->
+  <header class="gov-branding-header">
+    <div class="container gov-branding-content">
+      <a href="index.html" class="gov-branding-left">
+        <img src="assets/images/national-emblem.svg" alt="National Emblem of India" class="gov-emblem-img">
+        <div class="gov-title-group">
+          <span class="gov-state-title" data-i18n="gov.state">Government of Andhra Pradesh</span>
+          <span class="gov-dept-title" data-i18n="gov.dept">Department of Civil Supplies</span>
+          <span class="gov-portal-title">Procurement Administration &amp; Monitoring</span>
+        </div>
+      </a>
+      <div class="gov-branding-right">
+        <div style="text-align: right;">
+          <div style="font-size: 0.85rem; font-weight: 700; color: var(--gov-navy-dark);">
+            Sri M. Rajasekhar, IAS
+          </div>
+          <div style="font-size: 0.76rem; color: var(--text-muted);">
+            District Procurement Nodal Officer (Guntur Division)
+          </div>
+        </div>
+        <img src="assets/images/state-logo.svg" alt="Civil Supplies Seal" class="gov-state-logo-img">
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Navigation Bar -->
+  <nav class="gov-nav-bar" aria-label="Main Navigation">
+    <div class="container gov-nav-container">
+      <button type="button" class="mobile-menu-toggle" aria-expanded="false" aria-controls="main-nav-menu" aria-label="Toggle Navigation Menu">
+        ☰ Menu
+      </button>
+      <ul id="main-nav-menu" class="gov-nav-menu">
+        <li class="gov-nav-item"><a href="admin-dashboard.html" class="gov-nav-link active">Admin Dashboard</a></li>
+        <li class="gov-nav-item"><a href="procurement-centres.html" class="gov-nav-link">Centres Directory</a></li>
+        <li class="gov-nav-item"><a href="index.html" class="gov-nav-link">Public Portal</a></li>
+      </ul>
+      <div class="gov-nav-right-actions">
+        <a href="index.html" class="btn btn-sm btn-danger">Exit Admin Mode</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Breadcrumbs -->
+  <div class="breadcrumb-wrapper">
+    <div class="container">
+      <ul class="breadcrumbs">
+        <li><a href="index.html">Home</a></li>
+        <li>Department</li>
+        <li class="current">Executive Dashboard</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main id="main-content" style="padding: 30px 0;">
+    <div class="container">
+
+      <!-- Admin KPI Counters -->
+      <div class="grid-4" style="margin-bottom: 24px;">
+        <div class="card" style="margin-bottom: 0; border-top: 3px solid var(--gov-navy-primary);">
+          <div class="card-body">
+            <span class="form-label" style="font-size: 0.76rem;">Total Registered Farmers</span>
+            <div id="admin-kpi-farmers" style="font-size: 1.6rem; font-weight: 900; color: var(--gov-navy-dark); margin: 4px 0;">14,823</div>
+            <span class="badge badge-success">Guntur &amp; Krishna Region</span>
+          </div>
+        </div>
+        <div class="card" style="margin-bottom: 0; border-top: 3px solid var(--agri-green-primary);">
+          <div class="card-body">
+            <span class="form-label" style="font-size: 0.76rem;">Today's Scheduled Farmers</span>
+            <div id="admin-kpi-scheduled" style="font-size: 1.6rem; font-weight: 900; color: var(--agri-green-dark); margin: 4px 0;">48</div>
+            <span class="badge badge-info">Active Weighbridge Slots</span>
+          </div>
+        </div>
+        <div class="card" style="margin-bottom: 0; border-top: 3px solid #2563eb;">
+          <div class="card-body">
+            <span class="form-label" style="font-size: 0.76rem;">Active Procurement Centres</span>
+            <div id="admin-kpi-centres" style="font-size: 1.6rem; font-weight: 900; color: #1e40af; margin: 4px 0;">7</div>
+            <span class="badge badge-neutral">PPCs, PACS &amp; RBKs</span>
+          </div>
+        </div>
+        <div class="card" style="margin-bottom: 0; border-top: 3px solid #dc2626;">
+          <div class="card-body">
+            <span class="form-label" style="font-size: 0.76rem;">Pending Grievances</span>
+            <div id="admin-kpi-grievances" style="font-size: 1.6rem; font-weight: 900; color: #dc2626; margin: 4px 0;">1</div>
+            <span class="badge badge-warning">Action Required &lt; 72h</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Analytics Chart: Pure SVG Daily Procurement Trend -->
+      <div class="card" style="margin-bottom: 24px;">
+        <div class="card-header d-flex justify-between align-center">
+          <h3>Daily Procurement Volume Trend (Quintals) - Past 7 Days</h3>
+          <span class="badge badge-success">Live Weighbridge Telemetry</span>
+        </div>
+        <div class="card-body">
+          <div id="admin-procurement-chart" style="width: 100%; max-width: 700px; margin: 0 auto;">
+            <!-- Rendered via pure SVG in admin.js -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Tabbed Management Tables -->
+      <div class="card">
+        <div class="card-header" style="padding-bottom: 0; background: #ffffff;">
+          <div class="admin-tabs-nav" role="tablist">
+            <button type="button" class="admin-tab active" data-tab="tab-adm-centres" role="tab">
+              🏢 Today's Procurement Centres
+            </button>
+            <button type="button" class="admin-tab" data-tab="tab-adm-schedules" role="tab">
+              🚜 Farmer Schedule &amp; Weighment
+            </button>
+            <button type="button" class="admin-tab" data-tab="tab-adm-grievances" role="tab">
+              ⚖️ Pending Grievances
+            </button>
+            <button type="button" class="admin-tab" data-tab="tab-adm-payments" role="tab">
+              💳 Payment Sanction Ledger
+            </button>
+          </div>
+        </div>
+        <div class="card-body" style="padding: 0;">
+
+          <!-- Tab 1: Centres -->
+          <div id="tab-adm-centres" class="admin-panel active" role="tabpanel">
+            <div class="table-responsive" style="border: none; margin: 0;">
+              <table class="gov-table" aria-label="Centres Status">
+                <thead>
+                  <tr>
+                    <th>Centre Name</th>
+                    <th>Location</th>
+                    <th>Type</th>
+                    <th>Daily Capacity</th>
+                    <th>Booked</th>
+                    <th>Available</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody id="admin-centres-tbody">
+                  <!-- Populated by admin.js -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Tab 2: Schedules -->
+          <div id="tab-adm-schedules" class="admin-panel" role="tabpanel">
+            <div class="table-responsive" style="border: none; margin: 0;">
+              <table class="gov-table" aria-label="Farmer Appointments">
+                <thead>
+                  <tr>
+                    <th>Token Number</th>
+                    <th>Farmer Particulars</th>
+                    <th>Date &amp; Slot</th>
+                    <th>Quantity</th>
+                    <th>Current Status</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="admin-schedules-tbody">
+                  <!-- Populated by admin.js -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Tab 3: Grievances -->
+          <div id="tab-adm-grievances" class="admin-panel" role="tabpanel">
+            <div class="table-responsive" style="border: none; margin: 0;">
+              <table class="gov-table" aria-label="Grievances Management">
+                <thead>
+                  <tr>
+                    <th>Grievance ID</th>
+                    <th>Farmer / Mobile</th>
+                    <th>Category</th>
+                    <th>Complaint Summary</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="admin-grievances-tbody">
+                  <!-- Populated by admin.js -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Tab 4: Payments -->
+          <div id="tab-adm-payments" class="admin-panel" role="tabpanel">
+            <div class="table-responsive" style="border: none; margin: 0;">
+              <table class="gov-table" aria-label="Payment Disbursal Ledger">
+                <thead>
+                  <tr>
+                    <th>Token No</th>
+                    <th>Farmer Name</th>
+                    <th>Procured Qty</th>
+                    <th>Sanction Amount</th>
+                    <th>Bank UTR Reference</th>
+                    <th>DBT Status</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="admin-payments-tbody">
+                  <!-- Populated by admin.js -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Government Footer -->
+  <footer class="gov-footer">
+    <div class="container gov-footer-bottom">
+      <p style="margin: 0; font-size: 0.76rem;">
+        Website Content Managed by <strong>Department of Civil Supplies, Government of Andhra Pradesh</strong>.<br>
+        Designed, Developed and Hosted by <strong>National Informatics Centre (NIC)</strong>.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/language.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

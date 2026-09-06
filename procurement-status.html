@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Procurement Status Lifecycle Tracker - Online Paddy Procurement System, Department of Civil Supplies. 8-stage visual timeline tracking from gate entry to bank DBT payout.">
+  <title>Procurement Status Tracker | Online Paddy Procurement System</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/government.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <!-- Accessible Skip Link -->
+  <a href="#main-content" class="skip-to-content">Skip to Main Content</a>
+
+  <!-- Top Tricolor Stripe -->
+  <div class="gov-top-tricolor" aria-hidden="true"></div>
+
+  <!-- Government Top Admin Strip -->
+  <div class="gov-top-bar">
+    <div class="container gov-top-bar-content">
+      <div class="gov-entity-links">
+        <span class="gov-entity-link" data-i18n="gov.india">Government of India</span>
+        <span style="color: rgba(255,255,255,0.3);">|</span>
+        <span class="gov-entity-link" data-i18n="gov.state">Government of Andhra Pradesh</span>
+      </div>
+      <div class="gov-accessibility-controls">
+        <button type="button" id="btn-font-small" class="a11y-btn" aria-label="Decrease Text Size">A-</button>
+        <button type="button" id="btn-font-normal" class="a11y-btn" aria-label="Reset Text Size">A</button>
+        <button type="button" id="btn-font-large" class="a11y-btn" aria-label="Increase Text Size">A+</button>
+        <button type="button" id="btn-contrast-toggle" class="contrast-toggle-btn" aria-label="Toggle High Contrast">Contrast</button>
+        <div class="lang-select-wrapper">
+          <label for="header-lang-select" class="sr-only" style="position: absolute; left: -9999px;">Language</label>
+          <select id="header-lang-select" class="lang-select" aria-label="Select Language">
+            <option value="en">English</option>
+            <option value="te">తెలుగు (Telugu)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Department Branding Header -->
+  <header class="gov-branding-header">
+    <div class="container gov-branding-content">
+      <a href="index.html" class="gov-branding-left">
+        <img src="assets/images/national-emblem.svg" alt="National Emblem of India" class="gov-emblem-img">
+        <div class="gov-title-group">
+          <span class="gov-state-title" data-i18n="gov.state">Government of Andhra Pradesh</span>
+          <span class="gov-dept-title" data-i18n="gov.dept">Department of Civil Supplies</span>
+          <span class="gov-portal-title" data-i18n="gov.portal">Online Paddy Procurement System</span>
+        </div>
+      </a>
+      <div class="gov-branding-right">
+        <img src="assets/images/state-logo.svg" alt="Civil Supplies Seal" class="gov-state-logo-img">
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Navigation Bar -->
+  <nav class="gov-nav-bar" aria-label="Main Navigation">
+    <div class="container gov-nav-container">
+      <button type="button" class="mobile-menu-toggle" aria-expanded="false" aria-controls="main-nav-menu" aria-label="Toggle Navigation Menu">
+        ☰ Menu
+      </button>
+      <ul id="main-nav-menu" class="gov-nav-menu">
+        <li class="gov-nav-item"><a href="index.html" class="gov-nav-link" data-i18n="nav.home">Home</a></li>
+        <li class="gov-nav-item"><a href="farmer-registration.html" class="gov-nav-link" data-i18n="nav.farmers">Farmers</a></li>
+        <li class="gov-nav-item"><a href="procurement-centres.html" class="gov-nav-link" data-i18n="nav.centres">Procurement Centres</a></li>
+        <li class="gov-nav-item"><a href="slot-booking.html" class="gov-nav-link" data-i18n="nav.schedule">Schedule</a></li>
+        <li class="gov-nav-item"><a href="procurement-status.html" class="gov-nav-link active" data-i18n="nav.procurementStatus">Procurement Status</a></li>
+        <li class="gov-nav-item"><a href="payment-status.html" class="gov-nav-link" data-i18n="nav.paymentStatus">Payment Status</a></li>
+        <li class="gov-nav-item"><a href="grievance.html" class="gov-nav-link" data-i18n="nav.grievance">Grievance</a></li>
+      </ul>
+      <div class="gov-nav-right-actions">
+        <a href="farmer-dashboard.html" class="btn btn-sm btn-secondary">Farmer Dashboard</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Breadcrumbs -->
+  <div class="breadcrumb-wrapper">
+    <div class="container">
+      <ul class="breadcrumbs">
+        <li><a href="index.html">Home</a></li>
+        <li>Procurement</li>
+        <li class="current">Track Procurement Status</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main id="main-content" style="padding: 30px 0;">
+    <div class="container">
+      <div style="max-width: 860px; margin: 0 auto;">
+
+        <!-- Lookup Form -->
+        <div class="card" style="box-shadow: var(--shadow-card); border-top: 4px solid var(--gov-navy-primary); margin-bottom: 24px;">
+          <div class="card-header">
+            <h3>Track Paddy Procurement Lifecycle</h3>
+          </div>
+          <div class="card-body">
+            <p class="text-muted" style="font-size: 0.88rem; margin-bottom: 14px;">
+              Enter your <strong>Farmer Registration Number</strong> to monitor the progress of delivered paddy across all 8 statutory verification and payment stages.
+            </p>
+            <div class="d-flex gap-2 flex-wrap">
+              <input type="text" id="track-reg-input" class="form-control" placeholder="e.g. FMR-AP-2026-7821" value="FMR-AP-2026-7821" style="flex: 1; text-transform: uppercase;">
+              <button type="button" class="btn btn-primary" onclick="loadProcurementLifecycle()">
+                Track Status
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Procurement Record Details Overview -->
+        <div id="track-overview-card" class="card" style="display: none; margin-bottom: 24px;">
+          <div class="card-header d-flex justify-between align-center">
+            <h3 id="track-farmer-name" style="margin: 0;">Ramesh Kumar</h3>
+            <span id="track-reg-badge" class="badge badge-success">Verified Farmer</span>
+          </div>
+          <div class="card-body">
+            <div class="grid-3 mb-2">
+              <div>
+                <span class="form-label">Procurement Centre</span>
+                <strong id="track-centre-name">Tenali PPC</strong>
+              </div>
+              <div>
+                <span class="form-label">Scheduled Quantity</span>
+                <strong id="track-sched-qty">30 Quintals</strong>
+              </div>
+              <div>
+                <span class="form-label">Procured Quantity</span>
+                <strong id="track-proc-qty" style="color: var(--agri-green-dark);">30 Quintals</strong>
+              </div>
+            </div>
+            <div class="grid-3" style="border-top: 1px solid var(--border-color); padding-top: 12px;">
+              <div>
+                <span class="form-label">Quality Status</span>
+                <span id="track-quality-status" class="badge badge-success">Passed (14.2% Moisture)</span>
+              </div>
+              <div>
+                <span class="form-label">Weighment Slip</span>
+                <strong id="track-weighment-status">Net 30.00 Quintals (Electronic)</strong>
+              </div>
+              <div>
+                <span class="form-label">Payment Status</span>
+                <span id="track-payment-status" class="badge badge-success">Disbursed (DBT)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 8-Stage Visual Timeline -->
+        <div id="track-timeline-card" class="card" style="display: none;">
+          <div class="card-header">
+            <h3>8-Stage Official Procurement Timeline</h3>
+          </div>
+          <div class="card-body">
+            <div class="timeline-vertical">
+              
+              <!-- 1. Scheduled -->
+              <div class="timeline-node completed">
+                <div class="timeline-marker">✓</div>
+                <div class="timeline-content">
+                  <div class="timeline-header">
+                    <span class="timeline-title">1. Scheduled (Token Issued)</span>
+                    <span class="timeline-date">2026-08-20 10:15 AM</span>
+                  </div>
+                  <div class="timeline-details">
+                    Procurement slot successfully reserved. Token <strong>PPC-2026-0918</strong> allotted for Tenali AMC Yard.
+                  </div>
+                </div>
+              </div>
+
+              <!-- 2. Arrived -->
+              <div class="timeline-node completed">
+                <div class="timeline-marker">✓</div>
+                <div class="timeline-content">
+                  <div class="timeline-header">
+                    <span class="timeline-title">2. Arrived at PPC Gate</span>
+                    <span class="timeline-date">2026-08-28 09:10 AM</span>
+                  </div>
+                  <div class="timeline-details">
+                    Tractor vehicle gate entry recorded. Token verified with biometric/OTP verification at entry bay.
+                  </div>
+                </div>
+              </div>
+
+              <!-- 3. Quality Checked -->
+              <div class="timeline-node completed">
+                <div class="timeline-marker">✓</div>
+                <div class="timeline-content">
+                  <div class="timeline-header">
+                    <span class="timeline-title">3. Quality Inspection (FAQ Standards)</span>
+                    <span class="timeline-date">2026-08-28 09:40 AM</span>
+                  </div>
+                  <div class="timeline-details">
+                    Sample drawn and tested: Moisture recorded at <strong>14.2%</strong> (Permissible limit &le; 17.0%). Foreign matter 0.8%. Graded as <strong>Paddy Grade 'A'</strong>.
+                  </div>
+                </div>
+              </div>
+
+              <!-- 4. Weighed -->
+              <div class="timeline-node completed">
+                <div class="timeline-marker">✓</div>
+                <div class="timeline-content">
+                  <div class="timeline-header">
+                    <span class="timeline-title">4. Electronic Weighment</span>
+                    <span class="timeline-date">2026-08-28 10:15 AM</span>
+                  </div>
+                  <div class="timeline-details">
+                    Gross Weight: 5,450 Kg | Tare Weight: 2,450 Kg | <strong>Net Weight: 3,000 Kg (30.00 Quintals)</strong>. Weighbridge Slip No: WB-89021 issued.
+                  </div>
+                </div>
+              </div>
+
+              <!-- 5. Procured -->
+              <div class="timeline-node completed">
+                <div class="timeline-marker">✓</div>
+                <div class="timeline-content">
+                  <div class="timeline-header">
+                    <span class="timeline-title">5. Stock Acceptance &amp; Bagging</span>
+                    <span class="timeline-date">2026-08-28 10:45 AM</span>
+                  </div>
+                  <div class="timeline-details">
+                    75 standard gunny bags of 40 Kg each stacked and tagged with barcoded batch QR. Taken into central godown ledger.
+                  </div>
+                </div>
+              </div>
+
+              <!-- 6. Receipt Generated -->
+              <div class="timeline-node completed">
+                <div class="timeline-marker">✓</div>
+                <div class="timeline-content">
+                  <div class="timeline-header">
+                    <span class="timeline-title">6. Purchase Receipt Generated</span>
+                    <span class="timeline-date">2026-08-28 11:00 AM</span>
+                  </div>
+                  <div class="timeline-details">
+                    Official Purchase Receipt <strong>RCP-AP-2026-894102</strong> digitally signed by Tahsildar / Procurement Nodal Officer.
+                    <div class="mt-1">
+                      <a href="receipt.html?token=PPC-2026-0918" class="btn btn-sm btn-outline-navy">View Purchase Receipt</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 7. Payment Initiated -->
+              <div class="timeline-node completed">
+                <div class="timeline-marker">✓</div>
+                <div class="timeline-content">
+                  <div class="timeline-header">
+                    <span class="timeline-title">7. Payment Initiated (CFMS / e-Kuber)</span>
+                    <span class="timeline-date">2026-08-29 04:30 PM</span>
+                  </div>
+                  <div class="timeline-details">
+                    Sanction order prepared for ₹69,600 (30 Quintals @ ₹2,320/Qtl). Batch file dispatched to Comprehensive Financial Management System (CFMS).
+                  </div>
+                </div>
+              </div>
+
+              <!-- 8. Payment Completed -->
+              <div class="timeline-node completed">
+                <div class="timeline-marker">✓</div>
+                <div class="timeline-content">
+                  <div class="timeline-header">
+                    <span class="timeline-title">8. Direct Benefit Transfer (DBT) Credited</span>
+                    <span class="timeline-date">2026-08-30 11:45 AM</span>
+                  </div>
+                  <div class="timeline-details">
+                    Amount of <strong>₹69,600</strong> successfully credited to State Bank of India Account (XXXX4819).<br>
+                    Bank UTR Reference: <span style="font-family: var(--font-mono); font-weight: 700; color: #166534;">RBI20260830784912</span>.
+                    <div class="mt-1">
+                      <a href="payment-status.html" class="btn btn-sm btn-success">View Payment Ledger</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Government Footer -->
+  <footer class="gov-footer">
+    <div class="container gov-footer-bottom">
+      <p style="margin: 0; font-size: 0.76rem;">
+        Website Content Managed by <strong>Department of Civil Supplies, Government of Andhra Pradesh</strong>.<br>
+        Designed, Developed and Hosted by <strong>National Informatics Centre (NIC)</strong>.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/language.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    function loadProcurementLifecycle() {
+      const regId = document.getElementById("track-reg-input")?.value.trim();
+      const overview = document.getElementById("track-overview-card");
+      const timeline = document.getElementById("track-timeline-card");
+
+      if (!regId) return;
+
+      const farmers = JSON.parse(localStorage.getItem("epaddy_farmers") || "[]");
+      const farmer = farmers.find((f) => f.id.toLowerCase() === regId.toLowerCase()) || farmers[0];
+
+      if (farmer) {
+        overview.style.display = "block";
+        timeline.style.display = "block";
+
+        document.getElementById("track-farmer-name").textContent = `${farmer.name} (${farmer.id})`;
+        document.getElementById("track-centre-name").textContent = farmer.activeAppointment ? farmer.activeAppointment.centreName : "Tenali Agricultural Market Yard PPC";
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      loadProcurementLifecycle();
+    });
+  </script>
+</body>
+</html>

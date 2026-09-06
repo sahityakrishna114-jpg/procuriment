@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Procurement Centres Directory - Online Paddy Procurement System, Department of Civil Supplies. Locate PPC, PACS and RBK centres, inspect slot quotas, and contact nodal officers.">
+  <title>Procurement Centres | Online Paddy Procurement System</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/government.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <!-- Accessible Skip Link -->
+  <a href="#main-content" class="skip-to-content">Skip to Main Content</a>
+
+  <!-- Top Tricolor Stripe -->
+  <div class="gov-top-tricolor" aria-hidden="true"></div>
+
+  <!-- Government Top Admin Strip -->
+  <div class="gov-top-bar">
+    <div class="container gov-top-bar-content">
+      <div class="gov-entity-links">
+        <span class="gov-entity-link" data-i18n="gov.india">Government of India</span>
+        <span style="color: rgba(255,255,255,0.3);">|</span>
+        <span class="gov-entity-link" data-i18n="gov.state">Government of Andhra Pradesh</span>
+      </div>
+      <div class="gov-accessibility-controls">
+        <button type="button" id="btn-font-small" class="a11y-btn" aria-label="Decrease Text Size">A-</button>
+        <button type="button" id="btn-font-normal" class="a11y-btn" aria-label="Reset Text Size">A</button>
+        <button type="button" id="btn-font-large" class="a11y-btn" aria-label="Increase Text Size">A+</button>
+        <button type="button" id="btn-contrast-toggle" class="contrast-toggle-btn" aria-label="Toggle High Contrast">Contrast</button>
+        <div class="lang-select-wrapper">
+          <label for="header-lang-select" class="sr-only" style="position: absolute; left: -9999px;">Language</label>
+          <select id="header-lang-select" class="lang-select" aria-label="Select Language">
+            <option value="en">English</option>
+            <option value="te">తెలుగు (Telugu)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Department Branding Header -->
+  <header class="gov-branding-header">
+    <div class="container gov-branding-content">
+      <a href="index.html" class="gov-branding-left">
+        <img src="assets/images/national-emblem.svg" alt="National Emblem of India" class="gov-emblem-img">
+        <div class="gov-title-group">
+          <span class="gov-state-title" data-i18n="gov.state">Government of Andhra Pradesh</span>
+          <span class="gov-dept-title" data-i18n="gov.dept">Department of Civil Supplies</span>
+          <span class="gov-portal-title" data-i18n="gov.portal">Online Paddy Procurement System</span>
+        </div>
+      </a>
+      <div class="gov-branding-right">
+        <img src="assets/images/state-logo.svg" alt="Civil Supplies Seal" class="gov-state-logo-img">
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Navigation Bar -->
+  <nav class="gov-nav-bar" aria-label="Main Navigation">
+    <div class="container gov-nav-container">
+      <button type="button" class="mobile-menu-toggle" aria-expanded="false" aria-controls="main-nav-menu" aria-label="Toggle Navigation Menu">
+        ☰ Menu
+      </button>
+      <ul id="main-nav-menu" class="gov-nav-menu">
+        <li class="gov-nav-item"><a href="index.html" class="gov-nav-link" data-i18n="nav.home">Home</a></li>
+        <li class="gov-nav-item"><a href="farmer-registration.html" class="gov-nav-link" data-i18n="nav.farmers">Farmers</a></li>
+        <li class="gov-nav-item"><a href="procurement-centres.html" class="gov-nav-link active" data-i18n="nav.centres">Procurement Centres</a></li>
+        <li class="gov-nav-item"><a href="slot-booking.html" class="gov-nav-link" data-i18n="nav.schedule">Schedule</a></li>
+        <li class="gov-nav-item"><a href="procurement-status.html" class="gov-nav-link" data-i18n="nav.procurementStatus">Procurement Status</a></li>
+        <li class="gov-nav-item"><a href="payment-status.html" class="gov-nav-link" data-i18n="nav.paymentStatus">Payment Status</a></li>
+        <li class="gov-nav-item"><a href="grievance.html" class="gov-nav-link" data-i18n="nav.grievance">Grievance</a></li>
+      </ul>
+      <div class="gov-nav-right-actions">
+        <a href="farmer-login.html" class="btn btn-sm btn-secondary nav-login-btn" data-i18n="nav.farmerLogin">Farmer Login</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Breadcrumbs -->
+  <div class="breadcrumb-wrapper">
+    <div class="container">
+      <ul class="breadcrumbs">
+        <li><a href="index.html">Home</a></li>
+        <li class="current">Procurement Centres</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main id="main-content" style="padding: 30px 0;">
+    <div class="container">
+
+      <!-- Filter Panel Card -->
+      <div class="card" style="box-shadow: var(--shadow-card); border-top: 3px solid var(--gov-navy-primary); margin-bottom: 24px;">
+        <div class="card-header d-flex justify-between align-center">
+          <h3>Directory &amp; Live Search for Procurement Centres</h3>
+          <span id="centres-count-display" class="badge badge-info">Loading Centres...</span>
+        </div>
+        <div class="card-body">
+          <div class="grid-4">
+            <div class="form-group">
+              <label for="filter-district" class="form-label" data-i18n="common.district">District</label>
+              <select id="filter-district" class="form-control">
+                <option value="">All Districts</option>
+                <option value="Guntur">Guntur</option>
+                <option value="Krishna">Krishna</option>
+                <option value="West Godavari">West Godavari</option>
+                <option value="East Godavari">East Godavari</option>
+                <option value="Kurnool">Kurnool</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="filter-type" class="form-label" data-i18n="common.centreType">Centre Type</label>
+              <select id="filter-type" class="form-control">
+                <option value="">All Types</option>
+                <option value="Paddy Procurement Centre">PPC (Paddy Procurement Centre)</option>
+                <option value="PACS">PACS Society</option>
+                <option value="Rythu Bharosa Kendra">Rythu Bharosa Kendra (RBK)</option>
+                <option value="DCMS">DCMS Godown</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="filter-agency" class="form-label">Procuring Agency</label>
+              <select id="filter-agency" class="form-control">
+                <option value="">All Agencies</option>
+                <option value="Civil Supplies">State Civil Supplies Corp</option>
+                <option value="MARKFED">MARKFED</option>
+                <option value="FCI">Food Corporation of India (FCI)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="filter-search" class="form-label">Keyword Search</label>
+              <input type="text" id="filter-search" class="form-control" placeholder="Search centre name, officer, mandal...">
+            </div>
+          </div>
+          <div class="d-flex justify-between align-center mt-1">
+            <span class="text-muted" style="font-size: 0.82rem;">
+              Filter updates results dynamically in real-time.
+            </span>
+            <button type="button" id="btn-reset-filters" class="btn btn-sm btn-secondary" data-i18n="common.reset">
+              Reset Filters
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Centres Results Table -->
+      <div class="card">
+        <div class="card-header">
+          <h3>Active Procurement Points (Kharif Season 2026)</h3>
+        </div>
+        <div class="card-body" style="padding: 0;">
+          <div class="table-responsive" style="margin-bottom: 0; border: none;">
+            <table class="gov-table" aria-label="Procurement Centres List">
+              <thead>
+                <tr>
+                  <th>Centre Name &amp; Code</th>
+                  <th>Type</th>
+                  <th>Agency</th>
+                  <th>Nodal Officer</th>
+                  <th>Location / Mandal</th>
+                  <th>Available Slots</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="centres-table-tbody">
+                <!-- Dynamically populated by centres.js -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Government Footer -->
+  <footer class="gov-footer">
+    <div class="container gov-footer-bottom">
+      <p style="margin: 0; font-size: 0.76rem;">
+        Website Content Managed by <strong>Department of Civil Supplies, Government of Andhra Pradesh</strong>.<br>
+        Designed, Developed and Hosted by <strong>National Informatics Centre (NIC)</strong>.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/language.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/centres.js"></script>
+</body>
+</html>

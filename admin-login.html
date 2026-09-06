@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Departmental & Official Login - Department of Civil Supplies, Government of Andhra Pradesh. Secure portal for District Procurement Officers and PPC Managers.">
+  <title>Official Login | Online Paddy Procurement System</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/government.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <style>
+    .captcha-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .captcha-display {
+      background: #e2e8f0;
+      padding: 8px 16px;
+      font-family: 'Consolas', 'Courier New', monospace;
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: 5px;
+      color: #0c2340;
+      border-radius: var(--radius-sm);
+      border: 1px dashed #94a3b8;
+      user-select: none;
+    }
+  </style>
+</head>
+<body>
+  <!-- Accessible Skip Link -->
+  <a href="#main-content" class="skip-to-content">Skip to Main Content</a>
+
+  <!-- Top Tricolor Stripe -->
+  <div class="gov-top-tricolor" aria-hidden="true"></div>
+
+  <!-- Government Top Admin Strip -->
+  <div class="gov-top-bar">
+    <div class="container gov-top-bar-content">
+      <div class="gov-entity-links">
+        <span class="gov-entity-link" data-i18n="gov.india">Government of India</span>
+        <span style="color: rgba(255,255,255,0.3);">|</span>
+        <span class="gov-entity-link" data-i18n="gov.state">Government of Andhra Pradesh</span>
+      </div>
+      <div class="gov-accessibility-controls">
+        <button type="button" id="btn-font-small" class="a11y-btn" aria-label="Decrease Text Size">A-</button>
+        <button type="button" id="btn-font-normal" class="a11y-btn" aria-label="Reset Text Size">A</button>
+        <button type="button" id="btn-font-large" class="a11y-btn" aria-label="Increase Text Size">A+</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Department Branding Header -->
+  <header class="gov-branding-header">
+    <div class="container gov-branding-content">
+      <a href="index.html" class="gov-branding-left">
+        <img src="assets/images/national-emblem.svg" alt="National Emblem of India" class="gov-emblem-img">
+        <div class="gov-title-group">
+          <span class="gov-state-title" data-i18n="gov.state">Government of Andhra Pradesh</span>
+          <span class="gov-dept-title" data-i18n="gov.dept">Department of Civil Supplies</span>
+          <span class="gov-portal-title" data-i18n="gov.portal">Online Paddy Procurement System</span>
+        </div>
+      </a>
+      <div class="gov-branding-right">
+        <img src="assets/images/state-logo.svg" alt="Civil Supplies Seal" class="gov-state-logo-img">
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Navigation Bar -->
+  <nav class="gov-nav-bar" aria-label="Main Navigation">
+    <div class="container gov-nav-container">
+      <button type="button" class="mobile-menu-toggle" aria-expanded="false" aria-controls="main-nav-menu" aria-label="Toggle Navigation Menu">
+        ☰ Menu
+      </button>
+      <ul id="main-nav-menu" class="gov-nav-menu">
+        <li class="gov-nav-item"><a href="index.html" class="gov-nav-link" data-i18n="nav.home">Home</a></li>
+        <li class="gov-nav-item"><a href="procurement-centres.html" class="gov-nav-link" data-i18n="nav.centres">Procurement Centres</a></li>
+        <li class="gov-nav-item"><a href="slot-booking.html" class="gov-nav-link" data-i18n="nav.schedule">Schedule</a></li>
+        <li class="gov-nav-item"><a href="procurement-status.html" class="gov-nav-link" data-i18n="nav.procurementStatus">Procurement Status</a></li>
+      </ul>
+      <div class="gov-nav-right-actions">
+        <a href="farmer-login.html" class="btn btn-sm btn-secondary nav-login-btn">Farmer Login</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Breadcrumbs -->
+  <div class="breadcrumb-wrapper">
+    <div class="container">
+      <ul class="breadcrumbs">
+        <li><a href="index.html">Home</a></li>
+        <li class="current">Departmental Official Login</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main id="main-content" style="padding: 40px 0;">
+    <div class="container">
+      <div style="max-width: 520px; margin: 0 auto;">
+
+        <div class="card" style="box-shadow: var(--shadow-card); border-top: 4px solid var(--gov-navy-dark);">
+          <div class="card-header" style="background: var(--gov-navy-dark); color: #ffffff;">
+            <h2 style="color: #ffffff; font-size: 1.25rem;">Departmental Authority Sign In</h2>
+          </div>
+          <div class="card-body">
+
+            <!-- Demo quick fill -->
+            <div style="background: #f1f5f9; padding: 10px; border-radius: var(--radius-sm); border: 1px dashed #94a3b8; margin-bottom: 16px;">
+              <span style="font-size: 0.74rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">
+                Quick Demo Login:
+              </span>
+              <button type="button" class="btn btn-sm btn-secondary mt-1" onclick="quickFillAdmin()">
+                Fill District Procurement Officer Credentials
+              </button>
+            </div>
+
+            <form onsubmit="handleAdminLogin(event)">
+              <div class="form-group">
+                <label for="admin-emp-id" class="form-label">Employee / Officer ID <span class="required">*</span></label>
+                <input type="text" id="admin-emp-id" class="form-control" placeholder="e.g. EMP-DPO-GNT-101" value="EMP-DPO-GNT-101" required>
+              </div>
+
+              <div class="form-group">
+                <label for="admin-district" class="form-label">Jurisdiction District <span class="required">*</span></label>
+                <select id="admin-district" class="form-control">
+                  <option value="Guntur">Guntur District</option>
+                  <option value="Krishna">Krishna District</option>
+                  <option value="West Godavari">West Godavari District</option>
+                  <option value="East Godavari">East Godavari District</option>
+                  <option value="Kurnool">Kurnool District</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="admin-role" class="form-label">Designated Official Role <span class="required">*</span></label>
+                <select id="admin-role" class="form-control">
+                  <option value="District Procurement Officer">District Procurement Officer (DPO)</option>
+                  <option value="PPC Centre Manager">PPC Centre Manager / Tahsildar</option>
+                  <option value="Quality Inspector">Quality Control Inspector</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="admin-password" class="form-label">Password <span class="required">*</span></label>
+                <input type="password" id="admin-password" class="form-control" value="DemoAdmin@2026" required>
+              </div>
+
+              <!-- Captcha Section -->
+              <div class="form-group">
+                <label for="admin-captcha-input" class="form-label">Security Verification (Captcha) <span class="required">*</span></label>
+                <div class="captcha-container">
+                  <div id="captcha-code" class="captcha-display" data-code="K9X4B">K9X4B</div>
+                  <button type="button" id="btn-refresh-captcha" class="btn btn-sm btn-secondary" title="Refresh Captcha">
+                    🔄
+                  </button>
+                </div>
+                <input type="text" id="admin-captcha-input" class="form-control" placeholder="Enter Captcha" value="K9X4B">
+              </div>
+
+              <div class="mt-3">
+                <button type="submit" class="btn btn-primary btn-block btn-lg">
+                  Authenticate &amp; Access Admin Portal
+                </button>
+              </div>
+            </form>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Government Footer -->
+  <footer class="gov-footer">
+    <div class="container gov-footer-bottom">
+      <p style="margin: 0; font-size: 0.76rem;">
+        Website Content Managed by <strong>Department of Civil Supplies, Government of Andhra Pradesh</strong>.<br>
+        Designed, Developed and Hosted by <strong>National Informatics Centre (NIC)</strong>.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/language.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/auth.js"></script>
+  <script>
+    function quickFillAdmin() {
+      document.getElementById("admin-emp-id").value = "EMP-DPO-GNT-101";
+      document.getElementById("admin-password").value = "DemoAdmin@2026";
+      const code = document.getElementById("captcha-code")?.getAttribute("data-code");
+      if (code) document.getElementById("admin-captcha-input").value = code;
+      showToast("Admin credentials pre-filled.", "info");
+    }
+  </script>
+</body>
+</html>
