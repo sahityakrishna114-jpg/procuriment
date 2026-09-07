@@ -208,78 +208,63 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   font-size: 0.92rem;
   font-weight: 600;
   font-family: inherit;
-  border: 1px solid transparent;
+  border: 1px solid var(--agri-green-primary);
   border-radius: var(--radius-sm);
   cursor: pointer;
   text-decoration: none;
   transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
   line-height: 1.4;
   white-space: nowrap;
+  
+  background-color: #ffffff;
+  color: var(--agri-green-primary);
 }
 
-.btn-primary {
-  background-color: var(--gov-navy-primary);
-  color: #ffffff;
-  border-color: var(--gov-navy-dark);
-}
-
-.btn-primary:hover {
-  background-color: var(--gov-navy-dark);
-  color: #ffffff;
-}
-
-.btn-success {
-  background-color: var(--agri-green-primary);
-  color: #ffffff;
-  border-color: var(--agri-green-dark);
-}
-
-.btn-success:hover {
-  background-color: var(--agri-green-dark);
-  color: #ffffff;
-}
-
-.btn-secondary {
-  background-color: #f1f5f9;
-  color: var(--gov-navy-dark);
-  border-color: var(--border-color);
-}
-
-.btn-secondary:hover {
-  background-color: #e2e8f0;
-  border-color: #94a3b8;
-}
-
-.btn-outline-navy {
-  background-color: transparent;
-  color: var(--gov-navy-primary);
-  border-color: var(--gov-navy-primary);
-}
-
-.btn-outline-navy:hover {
-  background-color: var(--gov-navy-primary);
-  color: #ffffff;
-}
-
-.btn-outline-green {
-  background-color: transparent;
+.btn-primary,
+.btn-success,
+.btn-secondary,
+.btn-outline-navy,
+.btn-outline-green,
+.btn-danger {
+  background-color: #ffffff;
   color: var(--agri-green-primary);
   border-color: var(--agri-green-primary);
 }
 
-.btn-outline-green:hover {
-  background-color: var(--agri-green-primary);
-  color: #ffffff;
-}
-
-.btn-danger {
-  background-color: #dc2626;
-  color: #ffffff;
-  border-color: #b91c1c;
-}
-
+.btn:hover,
+.btn-primary:hover,
+.btn-success:hover,
+.btn-secondary:hover,
+.btn-outline-navy:hover,
+.btn-outline-green:hover,
 .btn-danger:hover {
-  background-color: #b91c1c;
+  background-color: var(--agri-green-primary) !important;
+  color: #ffffff !important;
+  border-color: var(--agri-green-primary) !important;
+}
+
+.btn:focus,
+.btn-primary:focus,
+.btn-success:focus,
+.btn-secondary:focus,
+.btn-outline-navy:focus,
+.btn-outline-green:focus,
+.btn-danger:focus {
+  background-color: var(--agri-green-primary) !important;
+  color: #ffffff !important;
+  border-color: var(--agri-green-primary) !important;
+}
+
+.btn:active,
+.btn-primary:active,
+.btn-success:active,
+.btn-secondary:active,
+.btn-outline-navy:active,
+.btn-outline-green:active,
+.btn-danger:active {
+  background-color: var(--agri-green-primary) !important;
+  color: #ffffff !important;
+  border-color: var(--agri-green-primary) !important;
 }
 
 .btn-sm {
